@@ -1,8 +1,8 @@
 /* eslint-disable max-classes-per-file */
 import { Transform } from 'class-transformer';
 import { IsIn, IsNotEmpty, IsOptional, IsString } from 'class-validator';
-import { Dto } from './dto';
-import { createDtoList } from './dto-list';
+import { Dto , createDtoList } from '.';
+
 
 class ExtendedClass extends Dto {
   @IsNotEmpty()
@@ -39,7 +39,7 @@ describe('given: a class that extends a Dto', () => {
             transformed: 'another to nothing',
           },
         ],
-        { key: 'value' }
+        { key: 'value' },
       );
       expect(extendedList).toEqual({
         items: [
@@ -48,6 +48,9 @@ describe('given: a class that extends a Dto', () => {
         ],
         lastKey: { key: 'value' },
       });
+      expect(extendedList.serialize()).toEqual(
+        '{"items":[{"defaults":"to a string","number":"one"},{"defaults":"to a string","number":"two"}],"lastKey":{"key":"value"}}',
+      );
     });
   });
 });
