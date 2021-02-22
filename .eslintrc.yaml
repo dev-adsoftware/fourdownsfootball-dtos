@@ -1,0 +1,43 @@
+# this file is managed by a cgen template (typescript-project)
+parser: '@typescript-eslint/parser'
+plugins: ['@typescript-eslint']
+extends:
+  - eslint:recommended
+  - plugin:@typescript-eslint/eslint-recommended
+  - plugin:@typescript-eslint/recommended
+  - airbnb-base
+  - prettier
+parserOptions:
+  ecmaVersion: 9
+  sourceType: module
+env:
+  node: true
+  es6: true
+  jest: true
+settings:
+  import/resolver:
+    node:
+      extensions: ['.ts', '.tsx', '.js', '.jsx']
+rules:
+  no-console: warn
+  class-methods-use-this: 0
+  no-useless-constructor: 0
+  no-empty-function: 0
+  import/prefer-default-export: 0
+  import/extensions: ['error', { 'ts': 'never', 'json': 'always' }]
+  '@typescript-eslint/no-unused-vars': ['error', { 'ignoreRestSiblings': true }]
+  indent: 0
+  quotes:
+    - error
+    - single
+  # max line length 80, except for "strings" and `template literals`
+  max-len:
+    - error
+    - ignoreStrings: true
+      ignoreTemplateLiterals: true
+      ignoreComments: true
+overrides:
+  - files: ['*.test.ts', '*.spec.ts', '*.e2e-test.ts']
+    rules:
+      '@typescript-eslint/no-explicit-any': 'off'
+      'import/no-extraneous-dependencies': 'off'

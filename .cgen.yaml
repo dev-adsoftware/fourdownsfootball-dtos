@@ -1,0 +1,8 @@
+template: typescript-project
+answers:
+  Author: dev.adsoftware@gmail.com
+  Description: ""
+  Name: fourdownsfootball-dtos
+  Template: typescript-project
+  TemplateVersion: 0.0.10
+  Timestamp: "2021-02-22T14:37:40Z"
