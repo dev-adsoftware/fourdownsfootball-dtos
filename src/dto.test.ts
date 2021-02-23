@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 import { Transform } from 'class-transformer';
 import { IsIn, IsNotEmpty, IsOptional, IsString } from 'class-validator';
-import { createDto, Dto } from './dto';
+import { createDto, Dto } from '.';
 
 class ExtendedClass extends Dto {
   @IsNotEmpty()
@@ -61,6 +61,9 @@ describe('given: a class that extends a DtoValidator', () => {
         transformed: 'to nothing',
       });
       expect(extended.name()).toEqual('ExtendedClass');
+      expect(extended.serialize()).toEqual(
+        '{"defaults":"to nothing","number":"one","transformed":"to nothing"}',
+      );
     });
   });
 

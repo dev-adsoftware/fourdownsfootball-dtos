@@ -1,11 +1,10 @@
 import { IsEnum, IsNumber, IsOptional, IsString } from 'class-validator';
-import { v4 } from 'uuid';
 import { Dto } from './dto';
 import { GameState } from './game-state.enum';
 
 export class Game extends Dto {
   @IsString()
-  id: string = v4();
+  id: string;
 
   @IsEnum(GameState)
   state: GameState = GameState.NotStarted;
