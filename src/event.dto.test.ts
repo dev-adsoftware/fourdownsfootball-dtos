@@ -23,9 +23,9 @@ describe('given: proper event', () => {
           data: 'jest-data',
         }),
       ).toEqual({
-        data: 'jest-data',
-        date: 'jest-date',
         id: 'jest-id',
+        date: 'jest-date',
+        data: 'jest-data',
         source: 'jest-source',
         type: 'jest-type',
         version: 'jest-version',
