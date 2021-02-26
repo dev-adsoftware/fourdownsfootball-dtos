@@ -17,7 +17,7 @@ describe('given: proper aggregate', () => {
         createDto(Aggregate, {
           id: 'jest.id',
           sequence: 0,
-          date: new Date('2000-01-01'),
+          date: '2000-01-01',
           event: createDto(Event, {
             source: 'jest.source',
             type: 'jest.type',
@@ -26,7 +26,7 @@ describe('given: proper aggregate', () => {
           }),
         }),
       ).toEqual({
-        date: new Date('2000-01-01'),
+        date: '2000-01-01',
         event: {
           data: '{"a":1}',
           source: 'jest.source',
