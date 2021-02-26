@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-import { GameState } from '.';
+import { GameState } from '..';
 
 describe('given: not-started state', () => {
   it('then: state matched', async () => {

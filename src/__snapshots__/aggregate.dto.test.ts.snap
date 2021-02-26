@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`given: no aggregate data when: I create an aggregate dto then: dto threw expected error 1`] = `"Aggregate: id must be a string, sequence must be a number conforming to the specified constraints, date must be a Date instance"`;

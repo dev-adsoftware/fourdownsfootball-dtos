@@ -1,6 +1,6 @@
 import { IsEnum, IsNumber, IsOptional, IsString } from 'class-validator';
-import { Dto } from './dto';
-import { GameState } from './game-state.enum';
+import { Dto } from '../../dto';
+import { GameState } from '../../types/game-state.enum';
 
 export class Game extends Dto {
   @IsString()

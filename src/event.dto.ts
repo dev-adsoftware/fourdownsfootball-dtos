@@ -1,13 +1,7 @@
-import { IsString } from 'class-validator';
+import { IsJSON, IsString } from 'class-validator';
 import { Dto } from './dto';
 
 export class Event extends Dto {
-  @IsString()
-  id: string;
-
-  @IsString()
-  date: string;
-
   @IsString()
   source: string;
 
@@ -17,6 +11,6 @@ export class Event extends Dto {
   @IsString()
   version: string;
 
-  @IsString()
+  @IsJSON()
   data: string;
 }

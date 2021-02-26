@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
-import { createDto } from './dto';
-import { Game } from '.';
+import { createDto } from '../../dto';
+import { Game } from '../..';
 
 describe('given: no game data', () => {
   describe('when: I create an game dto', () => {
