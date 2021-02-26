@@ -16,7 +16,7 @@ describe('given: proper aggregate', () => {
       expect(
         createDto(Aggregate, {
           id: 'jest.id',
-          sequence: 0,
+          sequence: '0',
           date: '2000-01-01',
           event: createDto(Event, {
             source: 'jest.source',
@@ -34,7 +34,7 @@ describe('given: proper aggregate', () => {
           version: 'jest.version',
         },
         id: 'jest.id',
-        sequence: 0,
+        sequence: '0',
       });
     });
   });

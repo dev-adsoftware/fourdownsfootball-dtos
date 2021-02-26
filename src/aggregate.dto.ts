@@ -2,6 +2,7 @@ import {
   IsBoolean,
   IsDateString,
   IsNumber,
+  IsNumberString,
   IsOptional,
   IsString,
   ValidateNested,
@@ -13,7 +14,7 @@ export class Aggregate extends Dto {
   @IsString()
   id: string;
 
-  @IsNumber()
+  @IsNumberString()
   sequence: string;
 
   @IsDateString()
