@@ -1,4 +1,4 @@
-import { IsEnum, IsNumber, IsOptional, IsString } from 'class-validator';
+import { IsEnum, IsNumber, IsString } from 'class-validator';
 import { Dto } from '../../dto';
 import { GameState } from '../../types/game-state.enum';
 
@@ -6,8 +6,14 @@ export class Game extends Dto {
   @IsString()
   id: string;
 
+  @IsString()
+  sequence: string;
+
   @IsEnum(GameState)
-  state: GameState = GameState.NotStarted;
+  state: GameState;
+
+  @IsString()
+  actor: string;
 
   @IsString()
   homeUsername: string;
@@ -29,10 +35,6 @@ export class Game extends Dto {
 
   @IsNumber()
   gameClock = 0;
-
-  @IsString()
-  @IsOptional()
-  offensiveTeamId?: string;
 
   @IsNumber()
   ballOn = 25;

@@ -1,4 +1,4 @@
-import { IsJSON, IsString } from 'class-validator';
+import { IsString } from 'class-validator';
 import { Dto } from './dto';
 
 export class Event extends Dto {
@@ -10,7 +10,4 @@ export class Event extends Dto {
 
   @IsString()
   version: string;
-
-  @IsJSON()
-  data: string;
 }

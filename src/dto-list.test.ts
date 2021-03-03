@@ -1,55 +1,20 @@
 /* eslint-disable max-classes-per-file */
-import { Transform } from 'class-transformer';
-import { IsIn, IsNotEmpty, IsOptional, IsString } from 'class-validator';
-import { Dto , createDtoList } from '.';
+import { IsString } from 'class-validator';
+import { Dto } from '.';
+import { DtoList } from './dto-list';
 
-
-class ExtendedClass extends Dto {
-  @IsNotEmpty()
-  @IsString()
-  defaults = 'to a string';
-
-  @IsIn(['one', 'two', 'three'])
-  number: string;
-
-  @IsString()
-  @IsOptional()
-  @Transform(({ obj }) => obj.defaults)
-  transformed: string;
-
-  name(): string {
-    return this.constructor.name;
-  }
-}
-
-describe('given: a class that extends a Dto', () => {
-  describe('when: I instantiate a list dto of the class', () => {
-    it('then: list was created with classes instantiated with default values', async () => {
-      const extendedList = createDtoList(
-        ExtendedClass,
-        [
-          {
-            default: 'to nothing',
-            number: 'one',
-            transformed: 'to nothing',
-          },
-          {
-            default: 'another nothing',
-            number: 'two',
-            transformed: 'another to nothing',
-          },
-        ],
-        { key: 'value' },
-      );
-      expect(extendedList).toEqual({
-        items: [
-          { defaults: 'to a string', number: 'one', transformed: undefined },
-          { defaults: 'to a string', number: 'two', transformed: undefined },
-        ],
-        lastKey: { key: 'value' },
-      });
-      expect(extendedList.serialize()).toEqual(
-        '{"items":[{"defaults":"to a string","number":"one"},{"defaults":"to a string","number":"two"}],"lastKey":{"key":"value"}}',
+describe('given: a class that extends dto', () => {
+  describe('when: I serialize the dto list', () => {
+    it('then: result was serialized list', async () => {
+      class ExtendedDto extends Dto {
+        @IsString()
+        required: string;
+      }
+      const list = new DtoList<ExtendedDto>();
+      list.items = [new ExtendedDto().init({ required: 'yep' })];
+      list.lastKey = { ...list.items[0] };
+      expect(list.serialize()).toEqual(
+        '{"items":[{"required":"yep"}],"lastKey":{"required":"yep"}}',
       );
     });
   });

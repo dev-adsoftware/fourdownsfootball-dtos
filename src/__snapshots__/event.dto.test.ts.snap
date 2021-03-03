@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`given: no event data when: I create an event dto then: dto threw expected error 1`] = `"Event: source must be a string, type must be a string, version must be a string, data must be a json string"`;

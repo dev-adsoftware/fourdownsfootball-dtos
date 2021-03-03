@@ -37,12 +37,3 @@ export class Dto {
       .join(', ');
   }
 }
-
-export function createDto<T extends Dto>(
-  C: { new (): T },
-  obj: Record<string | number, unknown>,
-): T {
-  const newT = new C();
-  newT.init(obj);
-  return newT;
-}

@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`given: no game data when: I create an game dto then: dto threw expected error 1`] = `"Game: id must be a string, homeUsername must be a string, homeTeamId must be a string, awayUsername must be a string, awayTeamId must be a string"`;

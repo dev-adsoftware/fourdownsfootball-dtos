@@ -1,6 +1,7 @@
 import {
   IsBoolean,
   IsDateString,
+  IsInstance,
   IsNumber,
   IsNumberString,
   IsOptional,
@@ -28,6 +29,7 @@ export class Aggregate extends Dto {
   @IsOptional()
   ttl: number;
 
+  @IsInstance(Event)
   @ValidateNested()
   event: Event;
 }

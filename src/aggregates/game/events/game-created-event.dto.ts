@@ -1,7 +1,16 @@
 import { IsString } from 'class-validator';
-import { Dto } from '../../dto';
+import { Event } from '../../../event.dto';
 
-export class GameCreatedEvent extends Dto {
+export class GameCreatedEvent extends Event {
+  @IsString()
+  source = 'app';
+
+  @IsString()
+  type = 'game.created';
+
+  @IsString()
+  version = '1';
+
   @IsString()
   homeUsername: string;
 

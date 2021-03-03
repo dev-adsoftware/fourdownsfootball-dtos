@@ -1,41 +1,23 @@
 /* eslint-disable max-classes-per-file */
-import { createDto } from './dto';
+
 import { Aggregate, Event } from '.';
 
-describe('given: no aggregate data', () => {
-  describe('when: I create an aggregate dto', () => {
-    it('then: dto threw expected error', async () => {
-      expect(() => createDto(Aggregate, {})).toThrowErrorMatchingSnapshot();
-    });
-  });
-});
-
-describe('given: proper aggregate', () => {
-  describe('when: I create an aggregate dto', () => {
-    it('then: dto was created with expected values', async () => {
-      expect(
-        createDto(Aggregate, {
-          id: 'jest.id',
-          sequence: '0',
-          date: '2000-01-01',
-          event: createDto(Event, {
-            source: 'jest.source',
-            type: 'jest.type',
-            version: 'jest.version',
-            data: JSON.stringify({ a: 1 }),
-          }),
-        }),
-      ).toEqual({
-        date: '2000-01-01',
-        event: {
-          data: '{"a":1}',
+describe('given: aggregate data', () => {
+  describe('when: I serialize the aggregate', () => {
+    it('then: result was serialized aggregate data', async () => {
+      const aggregate = new Aggregate().init({
+        id: 'jest.id',
+        sequence: '0',
+        date: '2000-01-01T00:00:00.000Z',
+        event: new Event().init({
           source: 'jest.source',
           type: 'jest.type',
           version: 'jest.version',
-        },
-        id: 'jest.id',
-        sequence: '0',
+        }),
       });
+      expect(aggregate.serialize()).toEqual(
+        '{"id":"jest.id","sequence":"0","date":"2000-01-01T00:00:00.000Z","event":{"source":"jest.source","type":"jest.type","version":"jest.version"}}',
+      );
     });
   });
 });
