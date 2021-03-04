@@ -36,3 +36,16 @@ describe('given: aggregate payload for game aggregate', () => {
     });
   });
 });
+
+describe('given: invalid aggregate', () => {
+  describe('when: I create an aggregate with the factory', () => {
+    it('then: Unknown aggregate type was thrown', async () => {
+      expect(() =>
+        AggregateFactory.create({
+          aggregate: 'invalid',
+          event: { source: 'jest.source', type: 'jest.type', version: '0' },
+        }),
+      ).toThrow('Unknown aggregate type invalid');
+    });
+  });
+});

@@ -14,6 +14,6 @@ export class AggregateFactory {
       });
     }
 
-    throw new Error('Unknown aggregate type');
+    throw new Error(`Unknown aggregate type ${payload.aggregate}`);
   }
 }

@@ -2,7 +2,7 @@ import { IsEnum, IsNumber, IsString } from 'class-validator';
 import { Dto } from '../../dto';
 import { GameState } from '../../types/game-state.enum';
 
-export class Game extends Dto {
+export class GameSummaryView extends Dto {
   @IsString()
   id: string;
 
