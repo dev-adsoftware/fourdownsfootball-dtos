@@ -13,6 +13,9 @@ import { Event } from './event.dto';
 
 export class Aggregate extends Dto {
   @IsString()
+  aggregate: string;
+
+  @IsString()
   id: string;
 
   @IsNumberString()
