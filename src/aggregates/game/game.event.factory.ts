@@ -1,12 +1,13 @@
 import { CoinFaceChosenEvent, GameCreatedEvent } from '.';
-import { DtoFactory, Event } from '../..';
+import { Event } from '../..';
 
 export class GameEventFactory {
   static create(eventType: string, payload: Record<string, unknown>): Event {
     if (eventType === 'game.created') {
-      return DtoFactory.create(GameCreatedEvent, payload);
-    } if (eventType === 'coinface.chosen') {
-      return DtoFactory.create(CoinFaceChosenEvent, payload);
+      return new GameCreatedEvent().init(payload);
+    }
+    if (eventType === 'coinface.chosen') {
+      return new CoinFaceChosenEvent().init(payload);
     }
     throw new Error(`Unknown event type ${eventType}`);
   }

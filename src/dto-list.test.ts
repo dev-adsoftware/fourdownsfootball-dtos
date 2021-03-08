@@ -10,7 +10,7 @@ describe('given: a class that extends dto', () => {
         @IsString()
         required: string;
       }
-      const list = new DtoList<ExtendedDto>();
+      const list = new DtoList();
       list.items = [new ExtendedDto().init({ required: 'yep' })];
       list.lastKey = { ...list.items[0] };
       expect(list.serialize()).toEqual(

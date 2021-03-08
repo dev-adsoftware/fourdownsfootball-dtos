@@ -1,7 +1,7 @@
 import { ClassConstructor, plainToClass } from 'class-transformer';
 import { validateSync, ValidationError } from 'class-validator';
 
-export class Dto {
+export abstract class Dto {
   public init(obj: Record<string | number, unknown>): this {
     Object.assign(
       this,

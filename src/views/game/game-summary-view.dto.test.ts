@@ -1,11 +1,10 @@
 import { GameSummaryView } from '.';
-import { DtoFactory } from '../..';
 import { GameState } from '../../types';
 
 describe('given: game summary data', () => {
   describe('when: I create a game summary view with a dto factory', () => {
     it('then: game summary view was returned', async () => {
-      const view = DtoFactory.create(GameSummaryView, {
+      const view = new GameSummaryView().init({
         id: 'jest.id',
         sequence: '0',
         state: GameState.AwaitingCoinFaceChoice,

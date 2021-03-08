@@ -1,7 +1,7 @@
 import { Dto } from './dto';
 
-export class DtoList<T extends Dto> {
-  public items: T[];
+export class DtoList {
+  public items: Dto[];
 
   public lastKey?: Record<string | number, unknown>;
 
