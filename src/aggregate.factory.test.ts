@@ -32,7 +32,7 @@ describe('given: aggregate payload for game aggregate', () => {
           type: 'game.created',
           version: 'jest.version',
         },
-        id: 'event|#|game|#|jest.id',
+        id: 'jest.id',
         sequence: '0',
       });
       expect(aggregate.event instanceof GameCreatedEvent).toBeTruthy();
