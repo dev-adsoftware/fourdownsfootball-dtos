@@ -1,4 +1,9 @@
-import { CoinFaceChosenEvent, GameCreatedEvent, GameEventFactory } from '.';
+import {
+  ActorChangedEvent,
+  CoinFaceChosenEvent,
+  GameCreatedEvent,
+  GameEventFactory,
+} from '.';
 
 describe('given: game created event payload', () => {
   describe('when: I create an event with the factory', () => {
@@ -21,6 +26,18 @@ describe('given: coin face chosen event payload', () => {
         choice: 'heads',
       });
       expect(event instanceof CoinFaceChosenEvent).toBeTruthy();
+    });
+  });
+});
+
+describe('given: actor changed event payload', () => {
+  describe('when: I create an event with the factory', () => {
+    it('then: ActorChangedEvent was returned', async () => {
+      const event = GameEventFactory.create('actor.changed', {
+        oldActor: 'jest.oldActor',
+        newActor: 'jest.newActor',
+      });
+      expect(event instanceof ActorChangedEvent).toBeTruthy();
     });
   });
 });

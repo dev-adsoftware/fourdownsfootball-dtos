@@ -1,4 +1,4 @@
-import { CoinFaceChosenEvent, GameCreatedEvent } from '.';
+import { ActorChangedEvent, CoinFaceChosenEvent, GameCreatedEvent } from '.';
 import { Event } from '../..';
 
 export class GameEventFactory {
@@ -8,6 +8,9 @@ export class GameEventFactory {
     }
     if (eventType === 'coinface.chosen') {
       return new CoinFaceChosenEvent().init(payload);
+    }
+    if (eventType === 'actor.changed') {
+      return new ActorChangedEvent().init(payload);
     }
     throw new Error(`Unknown event type ${eventType}`);
   }
