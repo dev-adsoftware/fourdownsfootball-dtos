@@ -4,6 +4,7 @@ import {
   GameCreatedEvent,
   GameEventFactory,
 } from '.';
+import { Event } from '../..';
 
 describe('given: game created event payload', () => {
   describe('when: I create an event with the factory', () => {
@@ -36,6 +37,11 @@ describe('given: actor changed event payload', () => {
       const event = GameEventFactory.create('actor.changed', {
         oldActor: 'jest.oldActor',
         newActor: 'jest.newActor',
+        lastEvent: new Event().init({
+          source: 'jest.source',
+          type: 'jest.type',
+          version: '1',
+        }),
       });
       expect(event instanceof ActorChangedEvent).toBeTruthy();
     });
