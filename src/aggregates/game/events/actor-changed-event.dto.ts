@@ -1,4 +1,4 @@
-import { IsInstance, IsString, ValidateNested } from 'class-validator';
+import { IsString } from 'class-validator';
 import { Event } from '../../../event.dto';
 
 export class ActorChangedEvent extends Event {
@@ -16,8 +16,4 @@ export class ActorChangedEvent extends Event {
 
   @IsString()
   newActor: string;
-
-  @ValidateNested()
-  @IsInstance(Event)
-  lastEvent: Event;
 }
