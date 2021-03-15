@@ -54,8 +54,6 @@ describe('given: coin toss result event payload', () => {
   describe('when: I create an even with the factor', () => {
     it('then: CoinTossResultEvent was returned', async () => {
       const event = GameEventFactory.create('cointoss.result', {
-        choice: CoinFace.Heads,
-        actual: CoinFace.Heads,
         winner: 'jest.winner',
       });
       expect(event instanceof CoinTossResultEvent).toBeTruthy();
