@@ -1,10 +1,12 @@
 import {
   ActorChangedEvent,
   CoinFaceChosenEvent,
+  CoinTossResultEvent,
   GameCreatedEvent,
   GameEventFactory,
 } from '.';
 import { Event } from '../..';
+import { CoinFace } from '../../types';
 
 describe('given: game created event payload', () => {
   describe('when: I create an event with the factory', () => {
@@ -24,7 +26,7 @@ describe('given: coin face chosen event payload', () => {
   describe('when: I create an event with the factory', () => {
     it('then: CoinFaceChosenEvent was returned', async () => {
       const event = GameEventFactory.create('coinface.chosen', {
-        choice: 'heads',
+        choice: CoinFace.Heads,
       });
       expect(event instanceof CoinFaceChosenEvent).toBeTruthy();
     });
@@ -44,6 +46,19 @@ describe('given: actor changed event payload', () => {
         }),
       });
       expect(event instanceof ActorChangedEvent).toBeTruthy();
+    });
+  });
+});
+
+describe('given: coin toss result event payload', () => {
+  describe('when: I create an even with the factor', () => {
+    it('then: CoinTossResultEvent was returned', async () => {
+      const event = GameEventFactory.create('cointoss.result', {
+        choice: CoinFace.Heads,
+        actual: CoinFace.Heads,
+        winner: 'jest.winner',
+      });
+      expect(event instanceof CoinTossResultEvent).toBeTruthy();
     });
   });
 });

@@ -2,16 +2,22 @@ import { IsEnum, IsString } from 'class-validator';
 import { Event } from '../../../event.dto';
 import { CoinFace } from '../../../types';
 
-export class CoinFaceChosenEvent extends Event {
+export class CoinTossResultEvent extends Event {
   @IsString()
-  source = 'app';
+  source = 'engine';
 
   @IsString()
-  type = 'coinface.chosen';
+  type = 'cointoss.result';
 
   @IsString()
   version = '1';
 
   @IsEnum(CoinFace)
   choice: CoinFace;
+
+  @IsEnum(CoinFace)
+  actual: CoinFace;
+
+  @IsString()
+  winner: string;
 }
