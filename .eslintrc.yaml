@@ -27,6 +27,8 @@ rules:
   import/extensions: ['error', { 'ts': 'never', 'json': 'always' }]
   '@typescript-eslint/no-unused-vars': ['error', { 'ignoreRestSiblings': true }]
   indent: 0
+  no-shadow: off
+  '@typescript-eslint/no-shadow': error
   quotes:
     - error
     - single

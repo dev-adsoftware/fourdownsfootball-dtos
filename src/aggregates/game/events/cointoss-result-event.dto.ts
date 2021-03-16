@@ -1,5 +1,5 @@
 import { IsEnum, IsString } from 'class-validator';
-import { CoinFace } from '../../..';
+import { CoinFace } from '../../../types';
 import { Event } from '../../../event.dto';
 
 export class CoinTossResultEvent extends Event {

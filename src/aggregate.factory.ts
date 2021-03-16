@@ -8,7 +8,7 @@ export class AggregateFactory {
     if (json.aggregate === 'game') {
       return new Aggregate().init({
         ...json,
-        event: GameEventFactory.create(
+        event: new GameEventFactory().create(
           event.type,
           json.event as Record<string, unknown>,
         ),
