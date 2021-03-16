@@ -1,4 +1,5 @@
-import { IsString } from 'class-validator';
+import { IsEnum, IsString } from 'class-validator';
+import { CoinFace } from '../../..';
 import { Event } from '../../../event.dto';
 
 export class CoinTossResultEvent extends Event {
@@ -10,6 +11,9 @@ export class CoinTossResultEvent extends Event {
 
   @IsString()
   version = '1';
+
+  @IsEnum(CoinFace)
+  actual: CoinFace;
 
   @IsString()
   winner: string;
