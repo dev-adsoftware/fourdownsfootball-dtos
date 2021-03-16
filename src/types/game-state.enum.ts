@@ -2,5 +2,9 @@ export enum GameState {
   AwaitingCoinFaceChoice,
   AwaitingCoinFlipSim,
   AwaitingKickoffChoice,
-  AwaitingKickReturnChoice,
+  AwaitingDirectionChoice,
+  AwaitingKickPlaycall,
+  AwaitingReceivingPlaycall,
+  AwaitingOffensePlaycall,
+  AwaitingDefensePlaycall,
 }
