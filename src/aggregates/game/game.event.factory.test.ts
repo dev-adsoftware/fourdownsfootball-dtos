@@ -6,6 +6,7 @@ import {
   GameCreatedEvent,
   GameEventFactory,
   KickoffChosenEvent,
+  PlayCalledEvent,
 } from '.';
 import { Event } from '../..';
 import { CoinFace, DirectionChoices, KickoffChoices } from '../../types';
@@ -82,6 +83,17 @@ describe('given: direction choice event payload', () => {
         choice: DirectionChoices.Home,
       });
       expect(event instanceof DirectionChosenEvent);
+    });
+  });
+});
+
+describe('given: play called event payload', () => {
+  describe('when: I create an event with the factory', () => {
+    it('then: PlayCalledEvent was returned', async () => {
+      const event = new GameEventFactory().create('play.called', {
+        play: 'jest.play',
+      });
+      expect(event instanceof PlayCalledEvent);
     });
   });
 });
