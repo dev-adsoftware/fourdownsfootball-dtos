@@ -1,4 +1,4 @@
 export enum DirectionChoices {
-  Home,
-  Away,
+  South,
+  North,
 }

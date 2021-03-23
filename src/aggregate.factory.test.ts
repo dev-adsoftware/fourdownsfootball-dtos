@@ -17,6 +17,7 @@ describe('given: aggregate payload for game aggregate', () => {
             homeTeamId: 'jest.homeTeamId',
             awayUsername: 'jest.awayUsername',
             awayTeamId: 'jest.awayTeamId',
+            currentSeed: 0,
           },
         }),
       );
@@ -26,6 +27,7 @@ describe('given: aggregate payload for game aggregate', () => {
         event: {
           awayTeamId: 'jest.awayTeamId',
           awayUsername: 'jest.awayUsername',
+          currentSeed: 0,
           homeTeamId: 'jest.homeTeamId',
           homeUsername: 'jest.homeUsername',
           source: 'jest.source',

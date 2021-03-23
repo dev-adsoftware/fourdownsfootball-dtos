@@ -1,5 +1,6 @@
 import { IsEnum, IsNumber, IsString } from 'class-validator';
 import { Dto } from '../../dto';
+import { DirectionChoices } from '../../types';
 import { GameState } from '../../types/game-state.enum';
 
 export class GameSummaryView extends Dto {
@@ -9,11 +10,20 @@ export class GameSummaryView extends Dto {
   @IsString()
   sequence: string;
 
+  @IsNumber()
+  currentSeed: number;
+
   @IsEnum(GameState)
   state: GameState;
 
   @IsString()
   actor: string;
+
+  @IsString()
+  offense = 'none';
+
+  @IsEnum(DirectionChoices)
+  direction: DirectionChoices = DirectionChoices.South;
 
   @IsString()
   homeUsername: string;
@@ -34,14 +44,17 @@ export class GameSummaryView extends Dto {
   awayScore = 0;
 
   @IsNumber()
-  gameClock = 0;
+  period = 1;
 
   @IsNumber()
-  ballOn = 25;
+  gameClock = 15 * 60;
 
   @IsNumber()
-  down = 1;
+  ballOn = 0;
 
   @IsNumber()
-  toGo = 10;
+  down = 0;
+
+  @IsNumber()
+  toGo = 0;
 }

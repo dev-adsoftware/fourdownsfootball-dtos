@@ -2,11 +2,12 @@ import {
   ActorChangedEvent,
   CoinFaceChosenEvent,
   CoinTossResultEvent,
+  DefensePlayCalledEvent,
   DirectionChosenEvent,
   GameCreatedEvent,
   GameEventFactory,
   KickoffChosenEvent,
-  PlayCalledEvent,
+  OffensePlayCalledEvent,
 } from '.';
 import { Event } from '../..';
 import { CoinFace, DirectionChoices, KickoffChoices } from '../../types';
@@ -19,6 +20,7 @@ describe('given: game created event payload', () => {
         homeTeamId: 'jest.homeTeamId',
         awayUsername: 'jest.awayUsername',
         awayTeamId: 'jest.awayTeamId',
+        currentSeed: 0,
       });
       expect(event instanceof GameCreatedEvent).toBeTruthy();
     });
@@ -59,6 +61,7 @@ describe('given: coin toss result event payload', () => {
       const event = new GameEventFactory().create('cointoss.result', {
         actual: CoinFace.Heads,
         winner: 'jest.winner',
+        nextSeed: 0,
       });
       expect(event instanceof CoinTossResultEvent).toBeTruthy();
     });
@@ -80,20 +83,31 @@ describe('given: direction choice event payload', () => {
   describe('when: I create an event with the factory', () => {
     it('then: DirectionChosenEvent was returned', async () => {
       const event = new GameEventFactory().create('direction.chosen', {
-        choice: DirectionChoices.Home,
+        choice: DirectionChoices.South,
       });
       expect(event instanceof DirectionChosenEvent);
     });
   });
 });
 
-describe('given: play called event payload', () => {
+describe('given: offense play called event payload', () => {
   describe('when: I create an event with the factory', () => {
-    it('then: PlayCalledEvent was returned', async () => {
-      const event = new GameEventFactory().create('play.called', {
+    it('then: OffensePlayCalledEvent was returned', async () => {
+      const event = new GameEventFactory().create('offense-play.called', {
         play: 'jest.play',
       });
-      expect(event instanceof PlayCalledEvent);
+      expect(event instanceof OffensePlayCalledEvent);
+    });
+  });
+});
+
+describe('given: defense play called event payload', () => {
+  describe('when: I create an event with the factory', () => {
+    it('then: DefensePlayCalledEvent was returned', async () => {
+      const event = new GameEventFactory().create('defense-play.called', {
+        play: 'jest.play',
+      });
+      expect(event instanceof DefensePlayCalledEvent);
     });
   });
 });

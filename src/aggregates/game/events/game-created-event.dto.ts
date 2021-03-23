@@ -1,4 +1,4 @@
-import { IsString } from 'class-validator';
+import { IsNumber, IsString } from 'class-validator';
 import { Event } from '../../../event.dto';
 
 export class GameCreatedEvent extends Event {
@@ -10,6 +10,9 @@ export class GameCreatedEvent extends Event {
 
   @IsString()
   version = '1';
+
+  @IsNumber()
+  currentSeed: number;
 
   @IsString()
   homeUsername: string;
