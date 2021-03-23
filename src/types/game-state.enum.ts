@@ -7,4 +7,5 @@ export enum GameState {
   AwaitingReceivingPlaycall,
   AwaitingOffensePlaycall,
   AwaitingDefensePlaycall,
+  AwaitingPlaySim,
 }
