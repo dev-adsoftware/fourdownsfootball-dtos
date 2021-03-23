@@ -2,11 +2,11 @@ import {
   ActorChangedEvent,
   CoinFaceChosenEvent,
   CoinTossResultEvent,
-  DefensePlayCalledEvent,
   DirectionChosenEvent,
   GameCreatedEvent,
   KickoffChosenEvent,
-  OffensePlayCalledEvent,
+  KickoffPlayCalledEvent,
+  KickReturnPlayCalledEvent,
 } from '.';
 import { Event } from '../..';
 
@@ -21,8 +21,8 @@ export class GameEventFactory {
       'cointoss.result': new CoinTossResultEvent(),
       'kickoff.chosen': new KickoffChosenEvent(),
       'direction.chosen': new DirectionChosenEvent(),
-      'offense-play.called': new OffensePlayCalledEvent(),
-      'defense-play.called': new DefensePlayCalledEvent(),
+      'kickoff-play.called': new KickoffPlayCalledEvent(),
+      'kickreturn-play.called': new KickReturnPlayCalledEvent(),
     };
   }
 
@@ -30,7 +30,9 @@ export class GameEventFactory {
     try {
       return this.events[eventType].init(payload);
     } catch (e) {
-      throw new Error(`Unexpected error creating event type ${eventType}`);
+      throw new Error(
+        `Unexpected error creating event type ${eventType} - ${e}`,
+      );
     }
   }
 }

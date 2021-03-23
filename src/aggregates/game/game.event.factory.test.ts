@@ -2,15 +2,19 @@ import {
   ActorChangedEvent,
   CoinFaceChosenEvent,
   CoinTossResultEvent,
-  DefensePlayCalledEvent,
   DirectionChosenEvent,
   GameCreatedEvent,
   GameEventFactory,
   KickoffChosenEvent,
-  OffensePlayCalledEvent,
+  KickoffPlayCalledEvent,
 } from '.';
 import { Event } from '../..';
-import { CoinFace, DirectionChoices, KickoffChoices } from '../../types';
+import {
+  CoinFace,
+  DirectionChoices,
+  KickoffChoices,
+  KickoffFormations,
+} from '../../types';
 
 describe('given: game created event payload', () => {
   describe('when: I create an event with the factory', () => {
@@ -90,24 +94,25 @@ describe('given: direction choice event payload', () => {
   });
 });
 
-describe('given: offense play called event payload', () => {
+describe('given: kickoff play called event payload', () => {
   describe('when: I create an event with the factory', () => {
-    it('then: OffensePlayCalledEvent was returned', async () => {
-      const event = new GameEventFactory().create('offense-play.called', {
+    it('then: KickoffPlayCalledEvent was returned', async () => {
+      const event = new GameEventFactory().create('kickoff-play.called', {
         play: 'jest.play',
+        formation: KickoffFormations.Normal,
+        kicker: 'jest.kicker',
+        special1: 'jest.special1',
+        special2: 'jest.special2',
+        special3: 'jest.special3',
+        special4: 'jest.special4',
+        special5: 'jest.special5',
+        special6: 'jest.special6',
+        special7: 'jest.special7',
+        special8: 'jest.special8',
+        special9: 'jest.special9',
+        special10: 'jest.special10',
       });
-      expect(event instanceof OffensePlayCalledEvent);
-    });
-  });
-});
-
-describe('given: defense play called event payload', () => {
-  describe('when: I create an event with the factory', () => {
-    it('then: DefensePlayCalledEvent was returned', async () => {
-      const event = new GameEventFactory().create('defense-play.called', {
-        play: 'jest.play',
-      });
-      expect(event instanceof DefensePlayCalledEvent);
+      expect(event instanceof KickoffPlayCalledEvent);
     });
   });
 });
