@@ -2,11 +2,11 @@ import {
   ActorChangedEvent,
   CoinFaceChosenEvent,
   CoinTossResultEvent,
+  DefensePlayCalledEvent,
   DirectionChosenEvent,
   GameCreatedEvent,
   KickoffChosenEvent,
-  KickoffPlayCalledEvent,
-  KickReturnPlayCalledEvent,
+  OffensePlayCalledEvent,
 } from '.';
 import { Event } from '../..';
 
@@ -21,8 +21,8 @@ export class GameEventFactory {
       'cointoss.result': new CoinTossResultEvent(),
       'kickoff.chosen': new KickoffChosenEvent(),
       'direction.chosen': new DirectionChosenEvent(),
-      'kickoff-play.called': new KickoffPlayCalledEvent(),
-      'kickreturn-play.called': new KickReturnPlayCalledEvent(),
+      'offense-play.called': new OffensePlayCalledEvent(),
+      'defense-play.called': new DefensePlayCalledEvent(),
     };
   }
 
