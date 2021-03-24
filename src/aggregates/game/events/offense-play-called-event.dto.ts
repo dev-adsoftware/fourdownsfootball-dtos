@@ -16,7 +16,7 @@ export class OffensePlayCalledEvent extends Event {
   play: string;
 
   @IsEnum(OffenseFormations)
-  formation: OffenseFormations.Kickoff;
+  formation: OffenseFormations;
 
   @ArrayMinSize(11)
   @ArrayMaxSize(11)

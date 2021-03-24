@@ -16,7 +16,7 @@ export class DefensePlayCalledEvent extends Event {
   play: string;
 
   @IsEnum(DefenseFormations)
-  formation: DefenseFormations.KickReturn;
+  formation: DefenseFormations;
 
   @ArrayMinSize(11)
   @ArrayMaxSize(11)
