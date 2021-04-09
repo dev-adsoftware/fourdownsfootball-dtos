@@ -1,5 +1,5 @@
 import { ArrayMaxSize, ArrayMinSize, IsEnum, IsString } from 'class-validator';
-import { OffenseFormations } from '../../..';
+import { OffenseFormations } from '../../../types/offense-formations.enum';
 import { Event } from '../../../event.dto';
 
 export class OffensePlayCalledEvent extends Event {

@@ -1,8 +1,8 @@
-import { IsEnum, IsNumber, IsString } from 'class-validator';
+import { IsEnum, IsString } from 'class-validator';
 import { CoinFace } from '../../../types';
-import { Event } from '../../../event.dto';
+import { ResultEvent } from './result-event.dto';
 
-export class CoinTossResultEvent extends Event {
+export class CoinTossResultEvent extends ResultEvent {
   @IsString()
   source = 'engine';
 
@@ -17,7 +17,4 @@ export class CoinTossResultEvent extends Event {
 
   @IsString()
   winner: string;
-
-  @IsNumber()
-  nextSeed: number;
 }

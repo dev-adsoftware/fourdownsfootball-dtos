@@ -7,6 +7,7 @@ import {
   GameCreatedEvent,
   KickoffChosenEvent,
   OffensePlayCalledEvent,
+  PlayResultEvent,
 } from '.';
 import { Event } from '../..';
 
@@ -23,6 +24,7 @@ export class GameEventFactory {
       'direction.chosen': new DirectionChosenEvent(),
       'offense-play.called': new OffensePlayCalledEvent(),
       'defense-play.called': new DefensePlayCalledEvent(),
+      'play.result': new PlayResultEvent(),
     };
   }
 

@@ -8,6 +8,7 @@ import {
   GameEventFactory,
   KickoffChosenEvent,
   OffensePlayCalledEvent,
+  PlayResultEvent,
 } from '.';
 import { Event } from '../..';
 import {
@@ -142,6 +143,19 @@ describe('given: defense play called event payload', () => {
         ],
       });
       expect(event instanceof DefensePlayCalledEvent);
+    });
+  });
+});
+
+describe('given: play result event payload', () => {
+  describe('when: I create an event with the factory', () => {
+    it('then: PlayResultEvent was returned', async () => {
+      const event = new GameEventFactory().create('play.result', {
+        kickDistance: 70,
+        returned: false,
+        nextSeed: 0,
+      });
+      expect(event instanceof PlayResultEvent);
     });
   });
 });
