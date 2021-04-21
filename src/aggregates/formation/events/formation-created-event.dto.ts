@@ -1,5 +1,6 @@
-import { ArrayMaxSize, ArrayMinSize, IsString } from 'class-validator';
+import { ArrayMaxSize, ArrayMinSize, IsEnum, IsString } from 'class-validator';
 import { Event } from '../../../event.dto';
+import { FormationTypes } from '../../../types';
 
 export class FormationCreatedEvent extends Event {
   @IsString()
@@ -13,6 +14,9 @@ export class FormationCreatedEvent extends Event {
 
   @IsString()
   name: string;
+
+  @IsEnum(FormationTypes)
+  formationType: FormationTypes;
 
   @ArrayMinSize(11)
   @ArrayMaxSize(11)

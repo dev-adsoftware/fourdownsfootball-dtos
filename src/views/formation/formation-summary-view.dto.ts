@@ -1,5 +1,6 @@
-import { ArrayMaxSize, ArrayMinSize, IsString } from 'class-validator';
+import { ArrayMaxSize, ArrayMinSize, IsEnum, IsString } from 'class-validator';
 import { Dto } from '../../dto';
+import { FormationTypes } from '../../types';
 
 export class FormationSummaryView extends Dto {
   @IsString()
@@ -7,6 +8,9 @@ export class FormationSummaryView extends Dto {
 
   @IsString()
   sequence: string;
+
+  @IsEnum(FormationTypes)
+  formationType: FormationTypes;
 
   @ArrayMinSize(11)
   @ArrayMaxSize(11)

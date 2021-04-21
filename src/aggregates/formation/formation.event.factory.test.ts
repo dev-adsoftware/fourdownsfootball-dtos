@@ -1,10 +1,12 @@
 import { FormationCreatedEvent, FormationEventFactory } from '.';
+import { FormationTypes } from '../../types';
 
 describe('given: formation created event payload', () => {
   describe('when: I create an event with the factory', () => {
     it('then: FormationCreatedEvent was returned', async () => {
       const event = new FormationEventFactory().create('formation.created', {
         name: 'jest.formation',
+        formationType: FormationTypes.Kickoff,
         positionMap: [
           'p1',
           'p2',

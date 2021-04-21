@@ -1,4 +1,5 @@
 import { FormationSummaryView } from '.';
+import { FormationTypes } from '../../types';
 
 describe('given: formation summary data', () => {
   describe('when: I create a formation summary view with a dto factory', () => {
@@ -6,6 +7,7 @@ describe('given: formation summary data', () => {
       const view = new FormationSummaryView().init({
         name: 'jest.name',
         sequence: '0',
+        formationType: FormationTypes.Kickoff,
         positionMap: [
           'p1',
           'p2',
@@ -22,6 +24,7 @@ describe('given: formation summary data', () => {
       });
       expect(view).toEqual({
         name: 'jest.name',
+        formationType: FormationTypes.Kickoff,
         positionMap: [
           'p1',
           'p2',
