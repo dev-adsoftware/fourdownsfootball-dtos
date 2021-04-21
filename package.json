@@ -1,6 +1,6 @@
 {
   "name": "@dev-adsoftware/fourdownsfootball-dtos",
-  "version": "0.0.49",
+  "version": "0.0.50",
   "description": "",
   "author": "dev.adsoftware@gmail.com",
   "license": "UNLICENSED",
@@ -22,7 +22,10 @@
     "test:coverage": "jest --coverage --globals '{}'",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:watch": "jest --watch",
-    "test:e2e": "echo 'no e2e tests configured'"
+    "test:e2e": "echo 'no e2e tests configured'",
+    "patch": "yarn version --patch",
+    "publish": "yarn publish --non-interactive",
+    "release": "yarn build && yarn patch && yarn publish"
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
