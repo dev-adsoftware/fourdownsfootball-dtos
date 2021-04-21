@@ -24,7 +24,7 @@ describe('given: formation summary data', () => {
       });
       expect(view).toEqual({
         name: 'jest.name',
-        formationType: FormationTypes.Kickoff,
+        formationType: 'kickoff',
         positionMap: [
           'p1',
           'p2',
