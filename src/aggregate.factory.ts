@@ -1,5 +1,5 @@
 import { Aggregate, Event } from '.';
-import { GameEventFactory } from './aggregates';
+import { FormationEventFactory, GameEventFactory } from './aggregates';
 
 export class AggregateFactory {
   static create(payload: string): Aggregate {
@@ -9,6 +9,16 @@ export class AggregateFactory {
       return new Aggregate().init({
         ...json,
         event: new GameEventFactory().create(
+          event.type,
+          json.event as Record<string, unknown>,
+        ),
+      });
+    }
+
+    if (json.aggregate === 'formation') {
+      return new Aggregate().init({
+        ...json,
+        event: new FormationEventFactory().create(
           event.type,
           json.event as Record<string, unknown>,
         ),
