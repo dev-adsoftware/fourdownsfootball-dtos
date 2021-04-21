@@ -3,7 +3,7 @@ import { Event } from '../../../event.dto';
 
 export class FormationCreatedEvent extends Event {
   @IsString()
-  source = 'app';
+  source = 'cli';
 
   @IsString()
   type = 'formation.created';
