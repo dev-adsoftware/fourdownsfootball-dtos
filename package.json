@@ -1,6 +1,6 @@
 {
   "name": "@dev-adsoftware/fourdownsfootball-dtos",
-  "version": "0.0.50",
+  "version": "0.0.51",
   "description": "",
   "author": "dev.adsoftware@gmail.com",
   "license": "UNLICENSED",
@@ -24,8 +24,7 @@
     "test:watch": "jest --watch",
     "test:e2e": "echo 'no e2e tests configured'",
     "patch": "yarn version --patch",
-    "publish": "yarn publish --non-interactive",
-    "release": "yarn build && yarn patch && yarn publish"
+    "release": "yarn build && yarn patch && yarn publish --non-interactive"
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
