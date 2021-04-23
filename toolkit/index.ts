@@ -13,7 +13,7 @@ const firstUpper = (name: string) =>
   `${name[0].toUpperCase()}${(name as string).slice(1)}`;
 
 const program = new Command();
-program.name('4d-nest');
+program.name('4d-dto-toolkit');
 
 program
   .command('aggregate')
