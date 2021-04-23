@@ -39,7 +39,11 @@ rules:
       ignoreTemplateLiterals: true
       ignoreComments: true
 overrides:
-  - files: ['*.test.ts', '*.spec.ts', '*.e2e-test.ts']
+  - files: ['*.test.ts', '*.spec.ts', '*.e2e-test.ts', 'cli/*.ts']
     rules:
       '@typescript-eslint/no-explicit-any': 'off'
       'import/no-extraneous-dependencies': 'off'
+      'no-template-curly-in-string': 'off'
+  - files: ['cli/**/*.ts']
+    rules:
+      'no-template-curly-in-string': 'off'
