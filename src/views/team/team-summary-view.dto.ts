@@ -3,5 +3,5 @@ import { Dto } from '../../dto';
 
 export class TeamSummaryView extends Dto {
   @IsString()
-  placeholder: string;
+  id: string;
 }
