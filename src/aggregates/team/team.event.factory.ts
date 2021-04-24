@@ -1,4 +1,4 @@
-import { TeamUpdatedEvent } from '.';
+import { TeamCreatedEvent } from '.';
 import { Event } from '../..';
 
   export class TeamEventFactory {
@@ -6,7 +6,7 @@ import { Event } from '../..';
 
     constructor() {
       this.events = {
-        'team.updated': new TeamUpdatedEvent(),
+        'team.created': new TeamCreatedEvent(),
         /* autogen replace: do not remove */
       };
     }

@@ -1,4 +1,5 @@
 import { AggregateFactory, FormationCreatedEvent, GameCreatedEvent } from '.';
+import { TeamCreatedEvent } from './aggregates/team/events/team-created-event.dto';
 import { FormationTypes } from './types';
 
 describe('given: aggregate payload for game aggregate', () => {
@@ -104,6 +105,38 @@ describe('given: aggregate payload for formation aggregate', () => {
     });
   });
 });
+
+describe('given: aggregate payload for team aggregate', () => {
+  describe('when: I create an aggregate with the factory', () => {
+    it('then: aggregate with proper event was created', async () => {
+      const aggregate = AggregateFactory.create(
+        JSON.stringify({
+          aggregate: 'team',
+          id: 'jest.id',
+          sequence: '0',
+          date: '2000-01-01T00:00:00.000Z',
+          event: {
+            source: 'jest.source',
+            type: 'team.created',
+            version: 'jest.version',
+            id: 'jest.id',
+            city: 'jest.city',
+            state: 'jest.state',
+            country: 'jest.country',
+            nickname: 'jest.nickname',
+            pluralNickname: 'jest.pluralNickname',
+            shortNickname: 'jest.shortNickname',
+            abbreviation: 'jest.abbreviation',
+            ownerUsername: 'jest.ownerUsername',
+          },
+        }),
+      );
+      expect(aggregate.event instanceof TeamCreatedEvent).toBeTruthy();
+    });
+  });
+});
+
+/* toolkit autogen: do not remove */
 
 describe('given: invalid aggregate', () => {
   describe('when: I create an aggregate with the factory', () => {

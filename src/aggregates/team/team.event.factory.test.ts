@@ -1,5 +1,4 @@
-import { TeamUpdatedEvent , TeamEventFactory } from '.';
-
+import { TeamCreatedEvent, TeamEventFactory } from '.';
 
 describe('given: invalid event type', () => {
   describe('when: I create an event with the factory', () => {
@@ -10,11 +9,21 @@ describe('given: invalid event type', () => {
     });
   });
 });
-describe('given: team updated event payload', () => {
+describe('given: team created event payload', () => {
   describe('when: I create an event with the factory', () => {
-    it('then: TeamUpdatedEvent was returned', async () => {
-      const event = new TeamEventFactory().create('team.updated', {});
-      expect(event instanceof TeamUpdatedEvent).toBeTruthy();
+    it('then: TeamCreatedEvent was returned', async () => {
+      const event = new TeamEventFactory().create('team.created', {
+        id: 'jest.id',
+        city: 'jest.city',
+        state: 'jest.state',
+        country: 'jest.country',
+        nickname: 'jest.nickname',
+        abbreviation: 'jest.abbreviation',
+        pluralNickname: 'jest.pluralNickname',
+        shortNickname: 'jest.shortNickname',
+        ownerUsername: 'jest.ownerUsername',
+      });
+      expect(event instanceof TeamCreatedEvent).toBeTruthy();
     });
   });
 });

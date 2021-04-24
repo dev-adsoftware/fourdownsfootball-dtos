@@ -24,7 +24,8 @@
     "test:watch": "jest --watch",
     "test:e2e": "echo 'no e2e tests configured'",
     "bump": "yarn build && yarn version --patch",
-    "toolkit": "ts-node toolkit/index.ts"
+    "toolkit": "ts-node toolkit/index.ts",
+    "tk": "yarn toolkit"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.11",

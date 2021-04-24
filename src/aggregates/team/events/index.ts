@@ -1,1 +1,1 @@
-export * from './team-updated-event.dto';
+export * from './team-created-event.dto';

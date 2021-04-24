@@ -1,5 +1,9 @@
+import {
+  TeamEventFactory,
+  FormationEventFactory,
+  GameEventFactory,
+} from './aggregates';
 import { Aggregate, Event } from '.';
-import { FormationEventFactory, GameEventFactory } from './aggregates';
 
 export class AggregateFactory {
   static create(payload: string): Aggregate {
@@ -24,6 +28,18 @@ export class AggregateFactory {
         ),
       });
     }
+
+    if (json.aggregate === 'team') {
+      return new Aggregate().init({
+        ...json,
+        event: new TeamEventFactory().create(
+          event.type,
+          json.event as Record<string, unknown>,
+        ),
+      });
+    }
+
+    /* toolkit autogen: do not remove */
 
     throw new Error(`Unknown aggregate type ${json.aggregate}`);
   }

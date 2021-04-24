@@ -50,6 +50,72 @@ ${aggregatesIndexTs}
       .trimStart()
       .trimEnd();
     writeFileSync(`${realPath}/../index.ts`, aggregatesIndexTs);
+
+    let aggregateFactoryTs = readFileSync(
+      `${realPath}/../../aggregate.factory.ts`,
+    ).toString('utf8');
+    aggregateFactoryTs = aggregateFactoryTs.replace(
+      '/* toolkit autogen: do not remove */',
+      `
+    if (json.aggregate === '${lowerName}') {
+      return new Aggregate().init({
+        ...json,
+        event: new ${firstUpper(lowerName)}EventFactory().create(
+          event.type,
+          json.event as Record<string, unknown>,
+        ),
+      });
+    }
+
+    /* toolkit autogen: do not remove */
+    `
+        .trimStart()
+        .trimEnd(),
+    );
+    aggregateFactoryTs = `
+import { ${firstUpper(lowerName)}EventFactory } from './aggregates';
+${aggregateFactoryTs}
+    `
+      .trimStart()
+      .trimEnd();
+    writeFileSync(`${realPath}/../../aggregate.factory.ts`, aggregateFactoryTs);
+
+    let aggregateFactoryTestTs = readFileSync(
+      `${realPath}/../../aggregate.factory.test.ts`,
+    ).toString('utf8');
+    aggregateFactoryTestTs = aggregateFactoryTestTs.replace(
+      '/* toolkit autogen: do not remove */',
+      `
+describe('given: aggregate payload for ${lowerName} aggregate', () => {
+  describe('when: I create an aggregate with the factory', () => {
+    it('then: aggregate with proper event was created', async () => {
+      const aggregate = AggregateFactory.create(
+        JSON.stringify({
+          aggregate: '${lowerName}',
+          id: 'jest.id',
+          sequence: '0',
+          date: '2000-01-01T00:00:00.000Z',
+          event: {
+            source: 'jest.source',
+            type: 'event',
+            version: 'jest.version',
+          }
+        })
+      );
+      expect(aggregate.event).toBeDefined();
+    });
+  });
+});
+
+/* toolkit autogen: do not remove */
+    `
+        .trimStart()
+        .trimEnd(),
+    );
+    writeFileSync(
+      `${realPath}/../../aggregate.factory.test.ts`,
+      aggregateFactoryTestTs,
+    );
   });
 
 program
