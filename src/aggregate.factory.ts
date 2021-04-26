@@ -1,3 +1,4 @@
+import { PlayerEventFactory } from './aggregates';
 import {
   TeamEventFactory,
   FormationEventFactory,
@@ -33,6 +34,16 @@ export class AggregateFactory {
       return new Aggregate().init({
         ...json,
         event: new TeamEventFactory().create(
+          event.type,
+          json.event as Record<string, unknown>,
+        ),
+      });
+    }
+
+    if (json.aggregate === 'player') {
+      return new Aggregate().init({
+        ...json,
+        event: new PlayerEventFactory().create(
           event.type,
           json.event as Record<string, unknown>,
         ),

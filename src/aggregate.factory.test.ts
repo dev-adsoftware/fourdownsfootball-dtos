@@ -136,6 +136,32 @@ describe('given: aggregate payload for team aggregate', () => {
   });
 });
 
+describe('given: aggregate payload for player aggregate', () => {
+  describe('when: I create an aggregate with the factory', () => {
+    it('then: aggregate with proper event was created', async () => {
+      const aggregate = AggregateFactory.create(
+        JSON.stringify({
+          aggregate: 'player',
+          id: 'jest.id',
+          sequence: '0',
+          date: '2000-01-01T00:00:00.000Z',
+          event: {
+            source: 'jest.source',
+            type: 'player.created',
+            version: 'jest.version',
+            id: 'jest.player.id',
+            firstName: 'jest.firstName',
+            lastName: 'jest.lastName',
+            suffix: '',
+            kicking: 25,
+          },
+        }),
+      );
+      expect(aggregate.event).toBeDefined();
+    });
+  });
+});
+
 /* toolkit autogen: do not remove */
 
 describe('given: invalid aggregate', () => {
