@@ -1,9 +1,9 @@
-import { PlayerEventFactory } from './aggregates';
-import {
+import { PlayerEventFactory ,
   TeamEventFactory,
   FormationEventFactory,
   GameEventFactory,
 } from './aggregates';
+
 import { Aggregate, Event } from '.';
 
 export class AggregateFactory {

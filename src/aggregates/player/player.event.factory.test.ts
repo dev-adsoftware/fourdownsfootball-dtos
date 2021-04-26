@@ -1,5 +1,5 @@
-import { PlayerCreatedEvent } from '.';
-import { PlayerEventFactory } from '.';
+import { PlayerCreatedEvent , PlayerEventFactory } from '.';
+
 
 describe('given: invalid event type', () => {
   describe('when: I create an event with the factory', () => {
