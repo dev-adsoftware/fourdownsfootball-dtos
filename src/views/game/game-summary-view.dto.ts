@@ -1,4 +1,4 @@
-import { IsEnum, IsNumber, IsString } from 'class-validator';
+import { IsEnum, IsNumber, IsNumberString, IsString } from 'class-validator';
 import { Dto } from '../../dto';
 import { DirectionChoices } from '../../types';
 import { GameState } from '../../types/game-state.enum';
@@ -7,7 +7,7 @@ export class GameSummaryView extends Dto {
   @IsString()
   id: string;
 
-  @IsString()
+  @IsNumberString()
   sequence: string;
 
   @IsNumber()

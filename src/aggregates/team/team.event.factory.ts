@@ -1,4 +1,5 @@
-import { TeamCreatedEvent } from '.';
+import { PlayerAssignedEvent , TeamCreatedEvent } from '.';
+
 import { Event } from '../..';
 
   export class TeamEventFactory {
@@ -7,6 +8,7 @@ import { Event } from '../..';
     constructor() {
       this.events = {
         'team.created': new TeamCreatedEvent(),
+        'player.assigned': new PlayerAssignedEvent(),
         /* autogen replace: do not remove */
       };
     }

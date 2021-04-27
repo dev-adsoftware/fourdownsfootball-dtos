@@ -2,6 +2,7 @@ import {
   IsDivisibleBy,
   IsIn,
   IsNumber,
+  IsNumberString,
   IsString,
   Max,
   Min,
@@ -12,7 +13,7 @@ export class PlayerSummaryView extends Dto {
   @IsString()
   id: string;
 
-  @IsString()
+  @IsNumberString()
   sequence: string;
 
   @IsString()

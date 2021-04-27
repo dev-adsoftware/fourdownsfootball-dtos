@@ -1,11 +1,11 @@
-import { IsString } from 'class-validator';
+import { IsNumberString, IsString } from 'class-validator';
 import { Dto } from '../../dto';
 
 export class TeamSummaryView extends Dto {
   @IsString()
   id: string;
 
-  @IsString()
+  @IsNumberString()
   sequence: string;
 
   @IsString()

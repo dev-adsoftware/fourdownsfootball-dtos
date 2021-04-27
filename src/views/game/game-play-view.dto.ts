@@ -2,6 +2,7 @@ import {
   ArrayMaxSize,
   ArrayMinSize,
   IsEnum,
+  IsNumberString,
   IsOptional,
   IsString,
 } from 'class-validator';
@@ -12,7 +13,7 @@ export class GamePlayView extends Dto {
   @IsString()
   id: string;
 
-  @IsString()
+  @IsNumberString()
   offenseSequence: string;
 
   @IsString()
@@ -27,7 +28,7 @@ export class GamePlayView extends Dto {
   offensePlayers: string[];
 
   @IsOptional()
-  @IsString()
+  @IsNumberString()
   defenseSequence?: string;
 
   @IsOptional()

@@ -1,4 +1,5 @@
-import { TeamCreatedEvent, TeamEventFactory } from '.';
+import { PlayerAssignedEvent , TeamCreatedEvent, TeamEventFactory } from '.';
+
 
 describe('given: invalid event type', () => {
   describe('when: I create an event with the factory', () => {
@@ -24,6 +25,18 @@ describe('given: team created event payload', () => {
         ownerUsername: 'jest.ownerUsername',
       });
       expect(event instanceof TeamCreatedEvent).toBeTruthy();
+    });
+  });
+});
+
+describe('given: player assigned event payload', () => {
+  describe('when: I create an event with the factory', () => {
+    it('then: PlayerAssignedEvent was returned', async () => {
+      const event = new TeamEventFactory().create('player.assigned', {
+        playerId: 'jest.player.id',
+        playerSequence: '999',
+      });
+      expect(event instanceof PlayerAssignedEvent).toBeTruthy();
     });
   });
 });
