@@ -30,6 +30,9 @@ export class PlayerCreatedEvent extends Event {
   @IsIn(['', 'Sr.', 'Jr.', 'I', 'II', 'II', 'IV'])
   suffix: string;
 
+  @IsString()
+  teamId: string;
+
   @IsNumber()
   @IsDivisibleBy(1)
   @Min(0)

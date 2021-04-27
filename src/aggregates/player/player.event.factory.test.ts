@@ -1,5 +1,4 @@
-import { PlayerCreatedEvent , PlayerEventFactory } from '.';
-
+import { PlayerCreatedEvent, PlayerEventFactory } from '.';
 
 describe('given: invalid event type', () => {
   describe('when: I create an event with the factory', () => {
@@ -18,6 +17,7 @@ describe('given: player created event payload', () => {
         firstName: 'jest.firstName',
         lastName: 'jest.lastName',
         suffix: '',
+        teamId: 'jest.team.id',
         kicking: 50,
       });
       expect(event instanceof PlayerCreatedEvent).toBeTruthy();

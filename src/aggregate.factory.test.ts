@@ -153,6 +153,7 @@ describe('given: aggregate payload for player aggregate', () => {
             firstName: 'jest.firstName',
             lastName: 'jest.lastName',
             suffix: '',
+            teamId: 'jest.team.id',
             kicking: 25,
           },
         }),

@@ -9,6 +9,7 @@ describe('given: player summary data', () => {
         firstName: 'jest.firstname',
         lastName: 'jest.lastname',
         suffix: '',
+        teamId: 'jest.team.id',
         kicking: 50,
       });
       expect(view).toEqual({
@@ -17,6 +18,7 @@ describe('given: player summary data', () => {
         firstName: 'jest.firstname',
         lastName: 'jest.lastname',
         suffix: '',
+        teamId: 'jest.team.id',
         kicking: 50,
       });
     });
