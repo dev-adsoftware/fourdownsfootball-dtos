@@ -31,6 +31,9 @@ export class GameSummaryView extends Dto {
   @IsString()
   homeTeamId: string;
 
+  @IsString()
+  homeTeamSequence: string;
+
   @IsNumber()
   homeScore = 0;
 
@@ -39,6 +42,9 @@ export class GameSummaryView extends Dto {
 
   @IsString()
   awayTeamId: string;
+
+  @IsString()
+  awayTeamSequence: string;
 
   @IsNumber()
   awayScore = 0;
