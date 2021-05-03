@@ -21,8 +21,14 @@ export class GameCreatedEvent extends Event {
   homeTeamId: string;
 
   @IsString()
+  homeTeamSequence: string;
+
+  @IsString()
   awayUsername: string;
 
   @IsString()
   awayTeamId: string;
+
+  @IsString()
+  awayTeamSequence: string;
 }

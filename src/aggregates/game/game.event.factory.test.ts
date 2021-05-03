@@ -25,8 +25,10 @@ describe('given: game created event payload', () => {
       const event = new GameEventFactory().create('game.created', {
         homeUsername: 'jest.homeUsername',
         homeTeamId: 'jest.homeTeamId',
+        homeTeamSequence: '0',
         awayUsername: 'jest.awayUsername',
         awayTeamId: 'jest.awayTeamId',
+        awayTeamSequence: '9',
         currentSeed: 0,
       });
       expect(event instanceof GameCreatedEvent).toBeTruthy();
