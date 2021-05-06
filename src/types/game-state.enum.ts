@@ -3,7 +3,7 @@ export enum GameState {
   AwaitingCoinFlipSim = 'awaiting-coin-flip-sim',
   AwaitingKickoffChoice = 'awaiting-kickoff-choice',
   AwaitingDirectionChoice = 'awaiting-direction-choice',
-  AwaitingKickoffPlaycall = 'awaiting-kickkoff-playcall',
+  AwaitingKickoffPlaycall = 'awaiting-kickoff-playcall',
   AwaitingKickReturnPlaycall = 'awaiting-kick-return-playcall',
   AwaitingOffensePlaycall = 'awaiting-offense-playcall',
   AwaitingDefensePlaycall = 'awaiting-defense-playcall',
