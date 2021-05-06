@@ -1,3 +1,3 @@
 export enum DefenseFormations {
-  KickReturn,
+  KickReturn = 'kick-return',
 }

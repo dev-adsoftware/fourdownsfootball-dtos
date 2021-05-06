@@ -1,4 +1,4 @@
 export enum CoinFace {
-  Heads,
-  Tails,
+  Heads = 'heads',
+  Tails = 'tails',
 }

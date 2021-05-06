@@ -40,7 +40,7 @@ describe('given: game summary data', () => {
         ],
       });
       expect(view).toEqual({
-        defenseFormation: 0,
+        defenseFormation: 'kick-return',
         defensePlay: 'jest.defense.play',
         defensePlayers: [
           'jest.returner',
@@ -57,7 +57,7 @@ describe('given: game summary data', () => {
         ],
         defenseSequence: '1',
         id: 'jest.id',
-        offenseFormation: 0,
+        offenseFormation: 'kickoff',
         offensePlay: 'jest.offense.play',
         offensePlayers: [
           'jest.kicker',

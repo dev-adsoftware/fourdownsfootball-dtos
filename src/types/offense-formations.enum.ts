@@ -1,3 +1,3 @@
 export enum OffenseFormations {
-  Kickoff,
+  Kickoff = 'kickoff',
 }

@@ -1,4 +1,12 @@
-import { IsEnum, IsNumber, IsNumberString, IsString } from 'class-validator';
+import {
+  IsEnum,
+  IsNumber,
+  IsNumberString,
+  IsObject,
+  IsString,
+  ValidateNested,
+} from 'class-validator';
+import { TeamSummaryView } from '..';
 import { Dto } from '../../dto';
 import { DirectionChoices } from '../../types';
 import { GameState } from '../../types/game-state.enum';
@@ -31,8 +39,9 @@ export class GameSummaryView extends Dto {
   @IsString()
   homeTeamId: string;
 
-  @IsString()
-  homeTeamSequence: string;
+  @IsObject()
+  @ValidateNested()
+  homeTeam: TeamSummaryView;
 
   @IsNumber()
   homeScore = 0;
@@ -43,8 +52,9 @@ export class GameSummaryView extends Dto {
   @IsString()
   awayTeamId: string;
 
-  @IsString()
-  awayTeamSequence: string;
+  @IsObject()
+  @ValidateNested()
+  awayTeam: TeamSummaryView;
 
   @IsNumber()
   awayScore = 0;

@@ -1,5 +1,5 @@
 export enum KickoffChoices {
-  Defer,
-  Kickoff,
-  Receive,
+  Defer = 'defer',
+  Kickoff = 'kickoff',
+  Receive = 'receive',
 }
