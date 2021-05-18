@@ -1,13 +1,14 @@
 import {
   ArrayMaxSize,
   ArrayMinSize,
-  IsEnum,
   IsNumberString,
+  IsObject,
   IsOptional,
   IsString,
+  ValidateNested,
 } from 'class-validator';
 import { Dto } from '../../dto';
-import { DefenseFormations, OffenseFormations } from '../../types';
+import { FormationSummaryView } from '../formation';
 
 export class GamePlayView extends Dto {
   @IsString()
@@ -19,8 +20,9 @@ export class GamePlayView extends Dto {
   @IsString()
   offensePlay: string;
 
-  @IsEnum(OffenseFormations)
-  offenseFormation: OffenseFormations;
+  @IsObject()
+  @ValidateNested()
+  offenseFormation: FormationSummaryView;
 
   @ArrayMaxSize(11)
   @ArrayMinSize(11)
@@ -36,8 +38,9 @@ export class GamePlayView extends Dto {
   defensePlay?: string;
 
   @IsOptional()
-  @IsEnum(DefenseFormations)
-  defenseFormation?: DefenseFormations;
+  @IsObject()
+  @ValidateNested()
+  defenseFormation?: FormationSummaryView;
 
   @IsOptional()
   @ArrayMaxSize(11)

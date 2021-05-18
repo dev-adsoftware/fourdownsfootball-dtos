@@ -1,4 +1,5 @@
 import { GamePlayView } from '.';
+import { FormationSummaryView } from '..';
 import { DefenseFormations, OffenseFormations } from '../../types';
 
 describe('given: game summary data', () => {
@@ -8,7 +9,24 @@ describe('given: game summary data', () => {
         id: 'jest.id',
         offenseSequence: '0',
         offensePlay: 'jest.offense.play',
-        offenseFormation: OffenseFormations.Kickoff,
+        offenseFormation: new FormationSummaryView().init({
+          name: 'jest.offenseFormation',
+          sequence: '0',
+          formationType: OffenseFormations.Kickoff,
+          positionMap: [
+            'kicker',
+            'sp1',
+            'sp2',
+            'sp3',
+            'sp4',
+            'sp5',
+            'sp6',
+            'sp7',
+            'sp8',
+            'sp9',
+            'sp10',
+          ],
+        }),
         offensePlayers: [
           'jest.kicker',
           'jest.special1',
@@ -24,7 +42,24 @@ describe('given: game summary data', () => {
         ],
         defenseSequence: '1',
         defensePlay: 'jest.defense.play',
-        defenseFormation: DefenseFormations.KickReturn,
+        defenseFormation: new FormationSummaryView().init({
+          name: 'jest.defenseFormation',
+          sequence: '0',
+          formationType: DefenseFormations.KickReturn,
+          positionMap: [
+            'returner',
+            'sp1',
+            'sp2',
+            'sp3',
+            'sp4',
+            'sp5',
+            'sp6',
+            'sp7',
+            'sp8',
+            'sp9',
+            'sp10',
+          ],
+        }),
         defensePlayers: [
           'jest.returner',
           'jest.special1',
@@ -40,7 +75,24 @@ describe('given: game summary data', () => {
         ],
       });
       expect(view).toEqual({
-        defenseFormation: 'kick-return',
+        defenseFormation: {
+          formationType: 'kick-return',
+          name: 'jest.defenseFormation',
+          positionMap: [
+            'returner',
+            'sp1',
+            'sp2',
+            'sp3',
+            'sp4',
+            'sp5',
+            'sp6',
+            'sp7',
+            'sp8',
+            'sp9',
+            'sp10',
+          ],
+          sequence: '0',
+        },
         defensePlay: 'jest.defense.play',
         defensePlayers: [
           'jest.returner',
@@ -57,7 +109,24 @@ describe('given: game summary data', () => {
         ],
         defenseSequence: '1',
         id: 'jest.id',
-        offenseFormation: 'kickoff',
+        offenseFormation: {
+          formationType: 'kickoff',
+          name: 'jest.offenseFormation',
+          positionMap: [
+            'kicker',
+            'sp1',
+            'sp2',
+            'sp3',
+            'sp4',
+            'sp5',
+            'sp6',
+            'sp7',
+            'sp8',
+            'sp9',
+            'sp10',
+          ],
+          sequence: '0',
+        },
         offensePlay: 'jest.offense.play',
         offensePlayers: [
           'jest.kicker',
