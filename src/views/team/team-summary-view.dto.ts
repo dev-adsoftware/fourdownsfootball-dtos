@@ -1,4 +1,10 @@
-import { IsNumberString, IsString } from 'class-validator';
+import {
+  IsNumberString,
+  IsObject,
+  IsString,
+  ValidateNested,
+} from 'class-validator';
+import { TeamAttributes } from '../../attributes/team.attributes.dto';
 import { Dto } from '../../dto';
 
 export class TeamSummaryView extends Dto {
@@ -9,26 +15,9 @@ export class TeamSummaryView extends Dto {
   sequence: string;
 
   @IsString()
-  city: string;
-
-  @IsString()
-  state: string;
-
-  @IsString()
-  country: string;
-
-  @IsString()
-  nickname: string;
-
-  @IsString()
-  abbreviation: string;
-
-  @IsString()
-  pluralNickname: string;
-
-  @IsString()
-  shortNickname: string;
-
-  @IsString()
   ownerUsername: string;
+
+  @IsObject()
+  @ValidateNested()
+  attributes: TeamAttributes;
 }
