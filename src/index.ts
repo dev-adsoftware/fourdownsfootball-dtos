@@ -1,5 +1,6 @@
 export * from './aggregate.dto';
 export * from './aggregate.factory';
+export * from './attributes';
 export * from './dto';
 export * from './dto-list';
 export * from './event.dto';
