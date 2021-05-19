@@ -1,25 +1,14 @@
-import { PlayerAssignedEvent , TeamCreatedEvent } from '.';
+import { PlayerAssignedEvent, TeamCreatedEvent } from '.';
 
-import { Event } from '../..';
+import { EventFactory } from '../../event.factory';
 
-  export class TeamEventFactory {
-    public events: { [key: string]: Event };
-
-    constructor() {
-      this.events = {
-        'team.created': new TeamCreatedEvent(),
-        'player.assigned': new PlayerAssignedEvent(),
-        /* autogen replace: do not remove */
-      };
-    }
-
-    public create(eventType: string, payload: Record<string, unknown>): Event {
-      try {
-        return this.events[eventType].init(payload);
-      } catch (e) {
-        throw new Error(
-          `Unexpected error creating event type ${eventType} - ${e}`,
-        );
-      }
-    }
+export class TeamEventFactory extends EventFactory {
+  constructor() {
+    super();
+    this.events = {
+      'team.created': new TeamCreatedEvent(),
+      'player.assigned': new PlayerAssignedEvent(),
+      /* autogen replace: do not remove */
+    };
   }
+}

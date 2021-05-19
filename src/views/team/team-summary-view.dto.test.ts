@@ -1,32 +1,17 @@
-import { TeamSummaryView } from '.';
+import { TeamSummaryView } from './team-summary-view.dto';
 
-describe('given: team summary data', () => {
-  describe('when: I create a view', () => {
-    it('then: TeamSummaryView was returned', async () => {
-      const view = new TeamSummaryView().init({
-        id: 'jest.id',
-        sequence: '0',
-        city: 'jest.city',
-        state: 'jest.state',
-        country: 'jest.country',
-        nickname: 'jest.nickname',
-        abbreviation: 'jest.abbreviation',
-        pluralNickname: 'jest.pluralNickname',
-        shortNickname: 'jest.shortNickname',
-        ownerUsername: 'jest.ownerUsername',
-      });
-      expect(view).toEqual({
-        id: 'jest.id',
-        sequence: '0',
-        city: 'jest.city',
-        state: 'jest.state',
-        country: 'jest.country',
-        nickname: 'jest.nickname',
-        abbreviation: 'jest.abbreviation',
-        pluralNickname: 'jest.pluralNickname',
-        shortNickname: 'jest.shortNickname',
-        ownerUsername: 'jest.ownerUsername',
-      });
+describe('given: missing data', () => {
+  describe('when: I initialize', () => {
+    it('then: error matched snapshot', async () => {
+      try {
+        expect(new TeamSummaryView().init({})).not.toBeDefined();
+      } catch (e) {
+        expect(e).toEqual(
+          Error(
+            'TeamSummaryView: id must be a string, sequence must be a number string, city must be a string, state must be a string, country must be a string, nickname must be a string, abbreviation must be a string, pluralNickname must be a string, shortNickname must be a string, ownerUsername must be a string',
+          ),
+        );
+      }
     });
   });
 });

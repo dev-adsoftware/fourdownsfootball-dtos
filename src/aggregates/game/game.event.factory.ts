@@ -9,12 +9,11 @@ import {
   OffensePlayCalledEvent,
   PlayResultEvent,
 } from '.';
-import { Event } from '../..';
+import { EventFactory } from '../../event.factory';
 
-export class GameEventFactory {
-  public events: { [key: string]: Event };
-
+export class GameEventFactory extends EventFactory {
   constructor() {
+    super();
     this.events = {
       'game.created': new GameCreatedEvent(),
       'coinface.chosen': new CoinFaceChosenEvent(),
@@ -26,15 +25,5 @@ export class GameEventFactory {
       'defense-play.called': new DefensePlayCalledEvent(),
       'play.result': new PlayResultEvent(),
     };
-  }
-
-  public create(eventType: string, payload: Record<string, unknown>): Event {
-    try {
-      return this.events[eventType].init(payload);
-    } catch (e) {
-      throw new Error(
-        `Unexpected error creating event type ${eventType} - ${e}`,
-      );
-    }
   }
 }

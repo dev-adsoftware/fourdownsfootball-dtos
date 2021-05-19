@@ -1,4 +1,5 @@
-import { IsString } from 'class-validator';
+import { IsObject, IsString, ValidateNested } from 'class-validator';
+import { TeamAttributes } from '../../../attributes/team.attributes.dto';
 import { Event } from '../../../event.dto';
 
 export class TeamCreatedEvent extends Event {
@@ -15,26 +16,9 @@ export class TeamCreatedEvent extends Event {
   id: string;
 
   @IsString()
-  city: string;
-
-  @IsString()
-  state: string;
-
-  @IsString()
-  country: string;
-
-  @IsString()
-  nickname: string;
-
-  @IsString()
-  abbreviation: string;
-
-  @IsString()
-  pluralNickname: string;
-
-  @IsString()
-  shortNickname: string;
-
-  @IsString()
   ownerUsername: string;
+
+  @IsObject()
+  @ValidateNested()
+  attributes: TeamAttributes;
 }

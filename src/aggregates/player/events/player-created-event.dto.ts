@@ -1,11 +1,5 @@
-import {
-  IsDivisibleBy,
-  IsIn,
-  IsNumber,
-  IsString,
-  Max,
-  Min,
-} from 'class-validator';
+import { IsObject, IsString, ValidateNested } from 'class-validator';
+import { PlayerAttributes } from '../../../attributes/player.attributes.dto';
 import { Event } from '../../../event.dto';
 
 export class PlayerCreatedEvent extends Event {
@@ -22,20 +16,9 @@ export class PlayerCreatedEvent extends Event {
   id: string;
 
   @IsString()
-  firstName: string;
-
-  @IsString()
-  lastName: string;
-
-  @IsIn(['', 'Sr.', 'Jr.', 'I', 'II', 'II', 'IV'])
-  suffix: string;
-
-  @IsString()
   teamId: string;
 
-  @IsNumber()
-  @IsDivisibleBy(1)
-  @Min(0)
-  @Max(100)
-  kicking: number;
+  @IsObject()
+  @ValidateNested()
+  attributes: PlayerAttributes;
 }

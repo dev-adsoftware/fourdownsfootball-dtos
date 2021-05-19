@@ -1,22 +1,11 @@
 import { FormationCreatedEvent } from '.';
-import { Event } from '../..';
+import { EventFactory } from '../../event.factory';
 
-export class FormationEventFactory {
-  public events: { [key: string]: Event };
-
+export class FormationEventFactory extends EventFactory {
   constructor() {
+    super();
     this.events = {
       'formation.created': new FormationCreatedEvent(),
     };
-  }
-
-  public create(eventType: string, payload: Record<string, unknown>): Event {
-    try {
-      return this.events[eventType].init(payload);
-    } catch (e) {
-      throw new Error(
-        `Unexpected error creating event type ${eventType} - ${e}`,
-      );
-    }
   }
 }

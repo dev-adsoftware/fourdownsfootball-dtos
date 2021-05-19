@@ -1,26 +1,17 @@
-import { PlayerSummaryView } from '.';
+import { PlayerSummaryView } from './player-summary-view.dto';
 
-describe('given: player summary data', () => {
-  describe('when: I create a view', () => {
-    it('then: PlayerSummaryView was returned', async () => {
-      const view = new PlayerSummaryView().init({
-        id: 'jest.player.id',
-        sequence: '0',
-        firstName: 'jest.firstname',
-        lastName: 'jest.lastname',
-        suffix: '',
-        teamId: 'jest.team.id',
-        kicking: 50,
-      });
-      expect(view).toEqual({
-        id: 'jest.player.id',
-        sequence: '0',
-        firstName: 'jest.firstname',
-        lastName: 'jest.lastname',
-        suffix: '',
-        teamId: 'jest.team.id',
-        kicking: 50,
-      });
+describe('given: missing data', () => {
+  describe('when: I initialize', () => {
+    it('then: error matched snapshot', async () => {
+      try {
+        expect(new PlayerSummaryView().init({})).not.toBeDefined();
+      } catch (e) {
+        expect(e).toEqual(
+          Error(
+            'PlayerSummaryView: id must be a string, sequence must be a number string, teamId must be a string, attributes must be an object',
+          ),
+        );
+      }
     });
   });
 });

@@ -9,7 +9,8 @@
     "!**/_*.{ts,tsx}",
     "!**/*.test.{ts,tsx}",
     "!src/{app.module,lambda}.ts",
-    "!src/**/*.{migration,entity}.ts"
+    "!src/**/*.{migration,entity}.ts",
+    "!**/test-data/*.ts"
   ],
   "transform": {
     "^.+\\.tsx?$": "ts-jest"

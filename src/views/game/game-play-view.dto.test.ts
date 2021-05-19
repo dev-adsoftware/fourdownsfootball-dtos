@@ -1,148 +1,17 @@
-import { GamePlayView } from '.';
-import { FormationSummaryView } from '..';
-import { DefenseFormations, OffenseFormations } from '../../types';
+import { GamePlayView } from './game-play-view.dto';
 
-describe('given: game summary data', () => {
-  describe('when: I create a game play view with a dto factory', () => {
-    it('then: game play view was returned', async () => {
-      const view = new GamePlayView().init({
-        id: 'jest.id',
-        offenseSequence: '0',
-        offensePlay: 'jest.offense.play',
-        offenseFormation: new FormationSummaryView().init({
-          name: 'jest.offenseFormation',
-          sequence: '0',
-          formationType: OffenseFormations.Kickoff,
-          positionMap: [
-            'kicker',
-            'sp1',
-            'sp2',
-            'sp3',
-            'sp4',
-            'sp5',
-            'sp6',
-            'sp7',
-            'sp8',
-            'sp9',
-            'sp10',
-          ],
-        }),
-        offensePlayers: [
-          'jest.kicker',
-          'jest.special1',
-          'jest.special2',
-          'jest.special3',
-          'jest.special4',
-          'jest.special5',
-          'jest.special6',
-          'jest.special7',
-          'jest.special8',
-          'jest.special9',
-          'jest.special10',
-        ],
-        defenseSequence: '1',
-        defensePlay: 'jest.defense.play',
-        defenseFormation: new FormationSummaryView().init({
-          name: 'jest.defenseFormation',
-          sequence: '0',
-          formationType: DefenseFormations.KickReturn,
-          positionMap: [
-            'returner',
-            'sp1',
-            'sp2',
-            'sp3',
-            'sp4',
-            'sp5',
-            'sp6',
-            'sp7',
-            'sp8',
-            'sp9',
-            'sp10',
-          ],
-        }),
-        defensePlayers: [
-          'jest.returner',
-          'jest.special1',
-          'jest.special2',
-          'jest.special3',
-          'jest.special4',
-          'jest.special5',
-          'jest.special6',
-          'jest.special7',
-          'jest.special8',
-          'jest.special9',
-          'jest.special10',
-        ],
-      });
-      expect(view).toEqual({
-        defenseFormation: {
-          formationType: 'kick-return',
-          name: 'jest.defenseFormation',
-          positionMap: [
-            'returner',
-            'sp1',
-            'sp2',
-            'sp3',
-            'sp4',
-            'sp5',
-            'sp6',
-            'sp7',
-            'sp8',
-            'sp9',
-            'sp10',
-          ],
-          sequence: '0',
-        },
-        defensePlay: 'jest.defense.play',
-        defensePlayers: [
-          'jest.returner',
-          'jest.special1',
-          'jest.special2',
-          'jest.special3',
-          'jest.special4',
-          'jest.special5',
-          'jest.special6',
-          'jest.special7',
-          'jest.special8',
-          'jest.special9',
-          'jest.special10',
-        ],
-        defenseSequence: '1',
-        id: 'jest.id',
-        offenseFormation: {
-          formationType: 'kickoff',
-          name: 'jest.offenseFormation',
-          positionMap: [
-            'kicker',
-            'sp1',
-            'sp2',
-            'sp3',
-            'sp4',
-            'sp5',
-            'sp6',
-            'sp7',
-            'sp8',
-            'sp9',
-            'sp10',
-          ],
-          sequence: '0',
-        },
-        offensePlay: 'jest.offense.play',
-        offensePlayers: [
-          'jest.kicker',
-          'jest.special1',
-          'jest.special2',
-          'jest.special3',
-          'jest.special4',
-          'jest.special5',
-          'jest.special6',
-          'jest.special7',
-          'jest.special8',
-          'jest.special9',
-          'jest.special10',
-        ],
-        offenseSequence: '0',
-      });
+describe('given: missing data', () => {
+  describe('when: I initialize', () => {
+    it('then: error matched snapshot', async () => {
+      try {
+        expect(new GamePlayView().init({})).not.toBeDefined();
+      } catch (e) {
+        expect(e).toEqual(
+          Error(
+            'GamePlayView: id must be a string, offenseSequence must be a number string, offensePlay must be a string, offenseFormation must be an object, each value in offensePlayers must be a string, offensePlayers must contain at least 11 elements, offensePlayers must contain not more than 11 elements',
+          ),
+        );
+      }
     });
   });
 });
