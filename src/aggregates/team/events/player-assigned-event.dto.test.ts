@@ -6,11 +6,7 @@ describe('given: missing data', () => {
       try {
         expect(new PlayerAssignedEvent().init({})).not.toBeDefined();
       } catch (e) {
-        expect(e).toEqual(
-          Error(
-            'PlayerAssignedEvent: playerId must be a string, playerSequence must be a number string',
-          ),
-        );
+        expect(e).toMatchSnapshot();
       }
     });
   });

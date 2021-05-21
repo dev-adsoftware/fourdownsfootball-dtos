@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`given: missing data when: I initialize then: error matched snapshot 1`] = `[Error: GameSummaryView: id must be a string, sequence must be a number string, currentSeed must be a number conforming to the specified constraints, state must be a valid enum value, actor must be a string, homeUsername must be a string, homeTeamId must be a string, homeTeam must be an object, awayUsername must be a string, awayTeamId must be a string, awayTeam must be an object]`;
+
+exports[`given: missing nested data when: I initialize then: error matched snapshot 1`] = `
+[Error: GameSummaryView: id must be a string, sequence must be a number string, currentSeed must be a number conforming to the specified constraints, state must be a valid enum value, actor must be a string, homeUsername must be a string, homeTeamId must be a string, An instance of an object has failed the validation:
+ - property homeTeam.id has failed the following constraints: isString 
+ - property homeTeam.sequence has failed the following constraints: isNumberString 
+ - property homeTeam.ownerUsername has failed the following constraints: isString 
+ - property homeTeam.attributes has failed the following constraints: isObject 
+, awayUsername must be a string, awayTeamId must be a string, An instance of an object has failed the validation:
+ - property awayTeam.id has failed the following constraints: isString 
+ - property awayTeam.sequence has failed the following constraints: isNumberString 
+ - property awayTeam.ownerUsername has failed the following constraints: isString 
+ - property awayTeam.attributes has failed the following constraints: isObject 
+]
+`;

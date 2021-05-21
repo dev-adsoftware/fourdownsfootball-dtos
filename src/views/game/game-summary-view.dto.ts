@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+import { Type } from 'class-transformer';
 import {
   IsEnum,
   IsNumber,
@@ -41,6 +43,7 @@ export class GameSummaryView extends Dto {
 
   @IsObject()
   @ValidateNested()
+  @Type(() => TeamSummaryView)
   homeTeam: TeamSummaryView;
 
   @IsNumber()
@@ -54,6 +57,7 @@ export class GameSummaryView extends Dto {
 
   @IsObject()
   @ValidateNested()
+  @Type(() => TeamSummaryView)
   awayTeam: TeamSummaryView;
 
   @IsNumber()

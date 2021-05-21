@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+import { Type } from 'class-transformer';
 import {
   ArrayMaxSize,
   ArrayMinSize,
@@ -22,6 +24,7 @@ export class GamePlayView extends Dto {
 
   @IsObject()
   @ValidateNested()
+  @Type(() => FormationSummaryView)
   offenseFormation: FormationSummaryView;
 
   @ArrayMaxSize(11)
@@ -40,6 +43,7 @@ export class GamePlayView extends Dto {
   @IsOptional()
   @IsObject()
   @ValidateNested()
+  @Type(() => FormationSummaryView)
   defenseFormation?: FormationSummaryView;
 
   @IsOptional()

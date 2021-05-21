@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`given: missing data when: I initialize then: error matched snapshot 1`] = `[Error: PlayerSummaryView: id must be a string, sequence must be a number string, teamId must be a string, attributes must be an object]`;
+
+exports[`given: missing nested data when: I initialize then: error matched snapshot 1`] = `
+[Error: PlayerSummaryView: id must be a string, sequence must be a number string, teamId must be a string, An instance of an object has failed the validation:
+ - property attributes.firstName has failed the following constraints: isString 
+ - property attributes.lastName has failed the following constraints: isString 
+ - property attributes.age has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.height has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.weight has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.jerseyNumber has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.speed has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.strength has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.agility has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.quickness has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.passingStrength has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.shortPassAccuracy has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.mediumPassAccuracy has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.longPassAccuracy has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.scramblingPassAccuracy has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.scrambling has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.ballHandling has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.rushing has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.breakingTackles has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.routeRunning has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.catching has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.spectacularCatching has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.catchingInTraffic has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.jumping has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.passBlocking has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.runBlocking has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.runStuffing has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.passRushing has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.zoneCovering has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.manCovering has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.awareness has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.intelligence has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.clutch has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.endurance has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.stamina has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.fragility has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.toughness has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.returning has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.kickingPower has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.kickingAccuracy has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.puntingPower has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.puntingAccuracy has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.aggressiveness has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.riskTaking has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.sportsmanship has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.coachability has failed the following constraints: max, min, isDivisibleBy, isNumber 
+ - property attributes.leadership has failed the following constraints: max, min, isDivisibleBy, isNumber 
+]
+`;

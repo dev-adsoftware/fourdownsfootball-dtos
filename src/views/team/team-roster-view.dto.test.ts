@@ -6,11 +6,7 @@ describe('given: missing data', () => {
       try {
         expect(new TeamRosterView().init({})).not.toBeDefined();
       } catch (e) {
-        expect(e).toEqual(
-          Error(
-            'TeamRosterView: id must be a string, sequence must be a number string, players must be an array',
-          ),
-        );
+        expect(e).toMatchSnapshot();
       }
     });
   });

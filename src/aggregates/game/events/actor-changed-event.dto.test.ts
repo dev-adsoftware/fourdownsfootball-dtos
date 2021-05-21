@@ -6,11 +6,7 @@ describe('given: missing data', () => {
       try {
         expect(new ActorChangedEvent().init({})).not.toBeDefined();
       } catch (e) {
-        expect(e).toEqual(
-          Error(
-            'ActorChangedEvent: oldActor must be a string, newActor must be a string',
-          ),
-        );
+        expect(e).toMatchSnapshot();
       }
     });
   });

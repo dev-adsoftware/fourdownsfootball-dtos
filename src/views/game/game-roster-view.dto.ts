@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+import { Type } from 'class-transformer';
 import {
   IsArray,
   IsNumberString,
@@ -16,9 +18,11 @@ export class GameRosterView extends Dto {
 
   @IsArray()
   @ValidateNested({ each: true })
+  @Type(() => PlayerSummaryView)
   awayTeamRoster: PlayerSummaryView[];
 
   @IsArray()
   @ValidateNested({ each: true })
+  @Type(() => PlayerSummaryView)
   homeTeamRoster: PlayerSummaryView[];
 }

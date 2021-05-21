@@ -6,11 +6,7 @@ describe('given: missing data', () => {
       try {
         expect(new CoinTossResultEvent().init({})).not.toBeDefined();
       } catch (e) {
-        expect(e).toEqual(
-          Error(
-            'CoinTossResultEvent: actual must be a valid enum value, winner must be a string, nextSeed must be a number conforming to the specified constraints',
-          ),
-        );
+        expect(e).toMatchSnapshot();
       }
     });
   });

@@ -6,11 +6,21 @@ describe('given: missing data', () => {
       try {
         expect(new PlayerCreatedEvent().init({})).not.toBeDefined();
       } catch (e) {
-        expect(e).toEqual(
-          Error(
-            'PlayerCreatedEvent: id must be a string, teamId must be a string, attributes must be an object',
-          ),
-        );
+        expect(e).toMatchSnapshot();
+      }
+    });
+  });
+});
+
+describe('given: missing nested data', () => {
+  describe('when: I initialize', () => {
+    it('then: error matched snapshot', async () => {
+      try {
+        expect(
+          new PlayerCreatedEvent().init({ attributes: {} }),
+        ).not.toBeDefined();
+      } catch (e) {
+        expect(e).toMatchSnapshot();
       }
     });
   });

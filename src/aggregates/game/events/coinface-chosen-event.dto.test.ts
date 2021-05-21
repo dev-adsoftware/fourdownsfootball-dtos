@@ -6,9 +6,7 @@ describe('given: missing data', () => {
       try {
         expect(new CoinFaceChosenEvent().init({})).not.toBeDefined();
       } catch (e) {
-        expect(e).toEqual(
-          Error('CoinFaceChosenEvent: choice must be a valid enum value'),
-        );
+        expect(e).toMatchSnapshot();
       }
     });
   });

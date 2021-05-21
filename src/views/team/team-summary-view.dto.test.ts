@@ -6,11 +6,21 @@ describe('given: missing data', () => {
       try {
         expect(new TeamSummaryView().init({})).not.toBeDefined();
       } catch (e) {
-        expect(e).toEqual(
-          Error(
-            'TeamSummaryView: id must be a string, sequence must be a number string, ownerUsername must be a string, attributes must be an object',
-          ),
-        );
+        expect(e).toMatchSnapshot();
+      }
+    });
+  });
+});
+
+describe('given: missing nested data', () => {
+  describe('when: I initialize', () => {
+    it('then: error matched snapshot', async () => {
+      try {
+        expect(
+          new TeamSummaryView().init({ attributes: {} }),
+        ).not.toBeDefined();
+      } catch (e) {
+        expect(e).toMatchSnapshot();
       }
     });
   });

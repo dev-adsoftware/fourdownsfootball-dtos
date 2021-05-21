@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+import { Type } from 'class-transformer';
 import {
   IsNumberString,
   IsObject,
@@ -19,5 +21,6 @@ export class PlayerSummaryView extends Dto {
 
   @IsObject()
   @ValidateNested()
+  @Type(() => PlayerAttributes)
   attributes: PlayerAttributes;
 }

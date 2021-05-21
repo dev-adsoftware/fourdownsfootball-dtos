@@ -6,11 +6,24 @@ describe('given: missing data', () => {
       try {
         expect(new GameRosterView().init({})).not.toBeDefined();
       } catch (e) {
-        expect(e).toEqual(
-          Error(
-            'GameRosterView: id must be a string, sequence must be a number string, awayTeamRoster must be an array, homeTeamRoster must be an array',
-          ),
-        );
+        expect(e).toMatchSnapshot();
+      }
+    });
+  });
+});
+
+describe('given: missing nested data', () => {
+  describe('when: I initialize', () => {
+    it('then: error matched snapshot', async () => {
+      try {
+        expect(
+          new GameRosterView().init({
+            awayTeamRoster: [{}],
+            homeTeamRoster: [{}],
+          }),
+        ).not.toBeDefined();
+      } catch (e) {
+        expect(e).toMatchSnapshot();
       }
     });
   });

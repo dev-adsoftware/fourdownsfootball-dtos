@@ -6,11 +6,7 @@ describe('given: missing data', () => {
       try {
         expect(new ResultEvent().init({})).not.toBeDefined();
       } catch (e) {
-        expect(e).toEqual(
-          Error(
-            'ResultEvent: nextSeed must be a number conforming to the specified constraints, source must be a string, type must be a string, version must be a string',
-          ),
-        );
+        expect(e).toMatchSnapshot();
       }
     });
   });
