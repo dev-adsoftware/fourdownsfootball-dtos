@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+import { Type } from 'class-transformer';
 import { IsObject, IsString, ValidateNested } from 'class-validator';
 import { TeamAttributes } from '../../../attributes/team.attributes.dto';
 import { Event } from '../../../event.dto';
@@ -20,5 +22,6 @@ export class TeamCreatedEvent extends Event {
 
   @IsObject()
   @ValidateNested()
+  @Type(() => TeamAttributes)
   attributes: TeamAttributes;
 }

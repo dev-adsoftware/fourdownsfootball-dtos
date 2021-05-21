@@ -89,7 +89,7 @@ ${aggregateFactoryTs}
 describe('given: aggregate payload for ${lowerName} aggregate', () => {
   describe('when: I create an aggregate with the factory', () => {
     it('then: aggregate with proper event was created', async () => {
-      const aggregate = AggregateFactory.create(
+      const aggregate = new AggregateFactory().create(
         JSON.stringify({
           aggregate: '${lowerName}',
           id: 'jest.id',

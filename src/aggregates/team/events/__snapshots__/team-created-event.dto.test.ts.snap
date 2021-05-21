@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`given: missing nested data when: I initialize then: error matched snapshot 1`] = `
+[Error: TeamCreatedEvent: An instance of an object has failed the validation:
+ - property attributes.city has failed the following constraints: isString 
+ - property attributes.state has failed the following constraints: isString 
+ - property attributes.country has failed the following constraints: isString 
+ - property attributes.nickname has failed the following constraints: isString 
+ - property attributes.abbreviation has failed the following constraints: isString 
+ - property attributes.pluralNickname has failed the following constraints: isString 
+ - property attributes.shortNickname has failed the following constraints: isString 
+]
+`;
