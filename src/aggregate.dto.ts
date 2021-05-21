@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-import { Type } from 'class-transformer';
 import {
   IsBoolean,
   IsDateString,
@@ -36,6 +35,5 @@ export class Aggregate extends Dto {
 
   @IsInstance(Event)
   @ValidateNested()
-  @Type(() => Event)
   event: Event;
 }
