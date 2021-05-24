@@ -83,10 +83,7 @@ export * from './events/${lowerName}-event.dto';
         '',
       )
       .replace(
-        new RegExp(
-          `\\s*'${lowerName}': new ${formalName}Event\\(\\)\\,\\n`,
-          'g',
-        ),
+        new RegExp(`\\s*'${dotName}': new ${formalName}Event\\(\\)\\,\\n`, 'g'),
         '\n',
       )
       .replace(
@@ -101,7 +98,7 @@ import { ${formalName}Event } from './events/${lowerName}-event.dto';
       .replace(
         /\/\* autogen replace: constructor \*\//,
         `
-'${lowerName}': new ${formalName}Event(),
+'${dotName}': new ${formalName}Event(),
       /* autogen replace: constructor */
 `
           .trimLeft()
@@ -110,6 +107,25 @@ import { ${formalName}Event } from './events/${lowerName}-event.dto';
     writeFileSync(
       `${srcAggregatePath}/${lowerAggregate}.event.factory.ts`,
       eventFactoryTs,
+    );
+
+    let eventFactoryTestTs = readFileSync(
+      `${srcAggregatePath}/${lowerAggregate}.event.factory.test.ts`,
+    ).toString('utf8');
+    eventFactoryTestTs = eventFactoryTestTs
+      .replace(new RegExp(`\\s*'${dotName}': \\{\\}\\,\\n`, 'g'), '\n')
+      .replace(
+        /\/\* autogen replace: constructor \*\//,
+        `
+'${dotName}': {},
+      /* autogen replace: constructor */
+`
+          .trimLeft()
+          .trimRight(),
+      );
+    writeFileSync(
+      `${srcAggregatePath}/${lowerAggregate}.event.factory.test.ts`,
+      eventFactoryTestTs,
     );
   });
 

@@ -8,7 +8,7 @@ export class PlayerEventFactory extends EventFactory {
     super();
     this.events = {
       'player.created': new PlayerCreatedEvent(),
-      'player-randomized': new PlayerRandomizedEvent(),
+      'player.randomized': new PlayerRandomizedEvent(),
       /* autogen replace: constructor */
     };
   }
