@@ -20,5 +20,5 @@
     "declaration": true
   },
   "exclude": ["*.config.js", "**/*.js", "build"],
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts", "templates/events/event.dto.ts.tmpl"]
 }

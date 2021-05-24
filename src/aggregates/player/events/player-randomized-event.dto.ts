@@ -3,12 +3,12 @@ import { IsEnum, IsString } from 'class-validator';
 import { Event } from '../../../event.dto';
 import { RandomPlayerTypes } from '../../../types';
 
-export class RandomCreatedEvent extends Event {
+export class PlayerRandomizedEvent extends Event {
   @IsString()
   source = 'unknown';
 
   @IsString()
-  type = 'random.created';
+  type = 'player.randomized';
 
   @IsString()
   version = '1';
@@ -16,9 +16,6 @@ export class RandomCreatedEvent extends Event {
   @IsString()
   id: string;
 
-  @IsString()
-  teamId: string;
-
   @IsEnum(RandomPlayerTypes)
-  randomPlayerType: RandomPlayerTypes;
+  playerType: RandomPlayerTypes;
 }

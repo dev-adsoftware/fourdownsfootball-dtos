@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`given: missing data when: I initialize then: error matched snapshot 1`] = `[Error: RandomCreatedEvent: id must be a string, teamId must be a string, randomPlayerType must be a valid enum value]`;

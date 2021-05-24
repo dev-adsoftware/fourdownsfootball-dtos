@@ -1,4 +1,6 @@
-import { PlayerCreatedEvent } from '.';
+import { PlayerCreatedEvent } from './events/player-created-event.dto';
+import { PlayerRandomizedEvent } from './events/player-randomized-event.dto';
+/* autogen replace: import */
 import { EventFactory } from '../../event.factory';
 
 export class PlayerEventFactory extends EventFactory {
@@ -6,7 +8,8 @@ export class PlayerEventFactory extends EventFactory {
     super();
     this.events = {
       'player.created': new PlayerCreatedEvent(),
-      /* autogen replace: do not remove */
+      'player-randomized': new PlayerRandomizedEvent(),
+      /* autogen replace: constructor */
     };
   }
 }
