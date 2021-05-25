@@ -15,9 +15,6 @@ export class PlayerCreatedEvent extends Event {
   version = '1';
 
   @IsString()
-  id: string;
-
-  @IsString()
   teamId: string;
 
   @IsObject()

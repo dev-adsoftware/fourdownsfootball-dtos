@@ -15,9 +15,6 @@ export class TeamCreatedEvent extends Event {
   version = '1';
 
   @IsString()
-  id: string;
-
-  @IsString()
   ownerUsername: string;
 
   @IsObject()

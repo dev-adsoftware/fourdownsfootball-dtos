@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`given: missing data when: I initialize then: error matched snapshot 1`] = `[Error: TeamCreatedEvent: id must be a string, ownerUsername must be a string, attributes must be an object]`;
+exports[`given: missing data when: I initialize then: error matched snapshot 1`] = `[Error: TeamCreatedEvent: ownerUsername must be a string, attributes must be an object]`;
 
 exports[`given: missing nested data when: I initialize then: error matched snapshot 1`] = `
-[Error: TeamCreatedEvent: id must be a string, ownerUsername must be a string, An instance of an object has failed the validation:
+[Error: TeamCreatedEvent: ownerUsername must be a string, An instance of an object has failed the validation:
  - property attributes.city has failed the following constraints: isString 
  - property attributes.state has failed the following constraints: isString 
  - property attributes.country has failed the following constraints: isString 

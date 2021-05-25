@@ -17,9 +17,6 @@ export class PlayerRandomizedEvent extends Event {
   currentSeed: number;
 
   @IsString()
-  id: string;
-
-  @IsString()
   teamId: string;
 
   @IsEnum(RandomPlayerTypes)
