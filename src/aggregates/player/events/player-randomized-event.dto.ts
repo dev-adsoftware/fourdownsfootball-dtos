@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { IsEnum, IsString } from 'class-validator';
+import { IsEnum, IsNumber, IsString } from 'class-validator';
 import { Event } from '../../../event.dto';
 import { RandomPlayerTypes } from '../../../types/random-player-types.enum';
 
@@ -12,6 +12,9 @@ export class PlayerRandomizedEvent extends Event {
 
   @IsString()
   version = '1';
+
+  @IsNumber()
+  currentSeed: number;
 
   @IsString()
   id: string;
