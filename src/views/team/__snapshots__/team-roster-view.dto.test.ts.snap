@@ -1,3 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`given: missing data when: I initialize then: error matched snapshot 1`] = `[Error: TeamRosterView: id must be a string, sequence must be a number string, players must be an array]`;
+
+exports[`given: missing nested data when: I initialize then: error matched snapshot 1`] = `
+[Error: TeamRosterView: id must be a string, sequence must be a number string, An instance of an object has failed the validation:
+ - property players[0].id has failed the following constraints: isString 
+ - property players[0].sequence has failed the following constraints: isNumberString 
+]
+`;

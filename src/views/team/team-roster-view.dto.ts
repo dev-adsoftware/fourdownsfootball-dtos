@@ -1,4 +1,12 @@
-import { IsArray, IsNumberString, IsString } from 'class-validator';
+import 'reflect-metadata';
+import { Type } from 'class-transformer';
+import {
+  IsArray,
+  IsNumberString,
+  IsString,
+  ValidateNested,
+} from 'class-validator';
+import { PlayerAssignmentAttributes } from '../../attributes/player-assignment.attributes.dto';
 import { Dto } from '../../dto';
 
 export class TeamRosterView extends Dto {
@@ -9,5 +17,7 @@ export class TeamRosterView extends Dto {
   sequence: string;
 
   @IsArray()
-  players: { id: string; sequence: string }[];
+  @ValidateNested({ each: true })
+  @Type(() => PlayerAssignmentAttributes)
+  players: PlayerAssignmentAttributes[];
 }
