@@ -1,5 +1,8 @@
-import { IsBoolean, IsNumber, IsOptional, IsString } from 'class-validator';
+import 'reflect-metadata';
+import { IsObject, IsString, ValidateNested } from 'class-validator';
+import { Type } from 'class-transformer';
 import { ResultEvent } from './result-event.dto';
+import { PlayResultAttributes } from '../../..';
 
 export class PlayResultEvent extends ResultEvent {
   @IsString()
@@ -11,15 +14,8 @@ export class PlayResultEvent extends ResultEvent {
   @IsString()
   version = '1';
 
-  @IsNumber()
-  @IsOptional()
-  kickDistance?: number;
-
-  @IsBoolean()
-  @IsOptional()
-  returned?: boolean;
-
-  @IsNumber()
-  @IsOptional()
-  returnDistance?: number;
+  @IsObject()
+  @ValidateNested()
+  @Type(() => PlayResultAttributes)
+  attributes: PlayResultAttributes;
 }
