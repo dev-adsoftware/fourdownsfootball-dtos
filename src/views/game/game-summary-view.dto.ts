@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 import { Type } from 'class-transformer';
 import {
+  IsBoolean,
   IsEnum,
   IsNumber,
   IsNumberString,
@@ -77,4 +78,7 @@ export class GameSummaryView extends Dto {
 
   @IsNumber()
   toGo = 0;
+
+  @IsBoolean()
+  isClockRunning = false;
 }

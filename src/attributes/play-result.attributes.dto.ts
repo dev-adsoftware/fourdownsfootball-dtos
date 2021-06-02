@@ -32,6 +32,12 @@ export class PlayResultAttributes extends Dto {
   @IsOptional()
   tackledBy?: string;
 
+  @IsNumber()
+  elapsedTime: number;
+
+  @IsBoolean()
+  isOutOfBounds: boolean;
+
   @IsArray()
   @IsOptional()
   staminaReductions?: { id: string; value: number }[];
