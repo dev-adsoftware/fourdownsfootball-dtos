@@ -12,7 +12,7 @@ export class PlayerStatAttributes extends Dto {
 
   @IsNumber()
   @IsDivisibleBy(1)
-  touchbacks: number;
+  kickoffTouchbacks: number;
 
   @IsNumber()
   @IsDivisibleBy(1)
