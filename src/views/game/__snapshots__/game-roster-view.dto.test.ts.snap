@@ -8,10 +8,12 @@ exports[`given: missing nested data when: I initialize then: error matched snaps
  - property awayTeamRoster[0].sequence has failed the following constraints: isNumberString 
  - property awayTeamRoster[0].teamId has failed the following constraints: isString 
  - property awayTeamRoster[0].attributes has failed the following constraints: isObject 
+ - property awayTeamRoster[0].statAttributes has failed the following constraints: isObject 
 , An instance of an object has failed the validation:
  - property homeTeamRoster[0].id has failed the following constraints: isString 
  - property homeTeamRoster[0].sequence has failed the following constraints: isNumberString 
  - property homeTeamRoster[0].teamId has failed the following constraints: isString 
  - property homeTeamRoster[0].attributes has failed the following constraints: isObject 
+ - property homeTeamRoster[0].statAttributes has failed the following constraints: isObject 
 ]
 `;

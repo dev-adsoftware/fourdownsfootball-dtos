@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`given: missing data when: I initialize then: error matched snapshot 1`] = `[Error: PlayerSummaryView: id must be a string, sequence must be a number string, teamId must be a string, attributes must be an object]`;
+exports[`given: missing data when: I initialize then: error matched snapshot 1`] = `[Error: PlayerSummaryView: id must be a string, sequence must be a number string, teamId must be a string, attributes must be an object, statAttributes must be an object]`;
 
 exports[`given: missing nested data when: I initialize then: error matched snapshot 1`] = `
 [Error: PlayerSummaryView: id must be a string, sequence must be a number string, teamId must be a string, An instance of an object has failed the validation:
@@ -51,5 +51,12 @@ exports[`given: missing nested data when: I initialize then: error matched snaps
  - property attributes.sportsmanship has failed the following constraints: max, min, isDivisibleBy, isNumber 
  - property attributes.coachability has failed the following constraints: max, min, isDivisibleBy, isNumber 
  - property attributes.leadership has failed the following constraints: max, min, isDivisibleBy, isNumber 
+, An instance of an object has failed the validation:
+ - property statAttributes.kickoff has failed the following constraints: isDivisibleBy, isNumber 
+ - property statAttributes.kickoffYds has failed the following constraints: isDivisibleBy, isNumber 
+ - property statAttributes.touchback has failed the following constraints: isDivisibleBy, isNumber 
+ - property statAttributes.kickReturn has failed the following constraints: isDivisibleBy, isNumber 
+ - property statAttributes.kickReturnYds has failed the following constraints: isDivisibleBy, isNumber 
+ - property statAttributes.kickReturnTD has failed the following constraints: isDivisibleBy, isNumber 
 ]
 `;

@@ -8,6 +8,7 @@ import {
 } from 'class-validator';
 import { PlayerAttributes } from '../../attributes/player.attributes.dto';
 import { Dto } from '../../dto';
+import { PlayerStatAttributes } from '../../attributes/player-stat.attributes.dto';
 
 export class PlayerSummaryView extends Dto {
   @IsString()
@@ -23,4 +24,9 @@ export class PlayerSummaryView extends Dto {
   @ValidateNested()
   @Type(() => PlayerAttributes)
   attributes: PlayerAttributes;
+
+  @IsObject()
+  @ValidateNested()
+  @Type(() => PlayerStatAttributes)
+  statAttributes: PlayerStatAttributes;
 }

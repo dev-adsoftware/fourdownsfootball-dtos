@@ -17,7 +17,7 @@ describe('given: missing nested data', () => {
     it('then: error matched snapshot', async () => {
       try {
         expect(
-          new PlayerSummaryView().init({ attributes: {} }),
+          new PlayerSummaryView().init({ attributes: {}, statAttributes: {} }),
         ).not.toBeDefined();
       } catch (e) {
         expect(e).toMatchSnapshot();
