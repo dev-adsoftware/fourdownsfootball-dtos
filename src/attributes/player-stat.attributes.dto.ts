@@ -4,7 +4,7 @@ import { Dto } from '../dto';
 export class PlayerStatAttributes extends Dto {
   @IsNumber()
   @IsDivisibleBy(1)
-  kickoff: number;
+  kickoffs: number;
 
   @IsNumber()
   @IsDivisibleBy(1)
@@ -12,11 +12,11 @@ export class PlayerStatAttributes extends Dto {
 
   @IsNumber()
   @IsDivisibleBy(1)
-  touchback: number;
+  touchbacks: number;
 
   @IsNumber()
   @IsDivisibleBy(1)
-  kickReturn: number;
+  kickReturns: number;
 
   @IsNumber()
   @IsDivisibleBy(1)
@@ -24,5 +24,5 @@ export class PlayerStatAttributes extends Dto {
 
   @IsNumber()
   @IsDivisibleBy(1)
-  kickReturnTD: number;
+  kickReturnTDs: number;
 }

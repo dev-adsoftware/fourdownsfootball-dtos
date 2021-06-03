@@ -52,11 +52,11 @@ exports[`given: missing nested data when: I initialize then: error matched snaps
  - property attributes.coachability has failed the following constraints: max, min, isDivisibleBy, isNumber 
  - property attributes.leadership has failed the following constraints: max, min, isDivisibleBy, isNumber 
 , An instance of an object has failed the validation:
- - property statAttributes.kickoff has failed the following constraints: isDivisibleBy, isNumber 
+ - property statAttributes.kickoffs has failed the following constraints: isDivisibleBy, isNumber 
  - property statAttributes.kickoffYds has failed the following constraints: isDivisibleBy, isNumber 
- - property statAttributes.touchback has failed the following constraints: isDivisibleBy, isNumber 
- - property statAttributes.kickReturn has failed the following constraints: isDivisibleBy, isNumber 
+ - property statAttributes.touchbacks has failed the following constraints: isDivisibleBy, isNumber 
+ - property statAttributes.kickReturns has failed the following constraints: isDivisibleBy, isNumber 
  - property statAttributes.kickReturnYds has failed the following constraints: isDivisibleBy, isNumber 
- - property statAttributes.kickReturnTD has failed the following constraints: isDivisibleBy, isNumber 
+ - property statAttributes.kickReturnTDs has failed the following constraints: isDivisibleBy, isNumber 
 ]
 `;
