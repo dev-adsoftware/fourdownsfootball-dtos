@@ -19,10 +19,5 @@ export class GameRosterView extends Dto {
   @IsArray()
   @ValidateNested({ each: true })
   @Type(() => PlayerSummaryView)
-  awayTeamRoster: PlayerSummaryView[];
-
-  @IsArray()
-  @ValidateNested({ each: true })
-  @Type(() => PlayerSummaryView)
-  homeTeamRoster: PlayerSummaryView[];
+  players: PlayerSummaryView[];
 }

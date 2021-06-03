@@ -18,8 +18,7 @@ describe('given: missing nested data', () => {
       try {
         expect(
           new GameRosterView().init({
-            awayTeamRoster: [{}],
-            homeTeamRoster: [{}],
+            players: [{}],
           }),
         ).not.toBeDefined();
       } catch (e) {
