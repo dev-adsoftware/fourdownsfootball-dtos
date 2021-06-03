@@ -8,6 +8,9 @@ import {
 import { Dto } from '../dto';
 
 export class PlayResultAttributes extends Dto {
+  @IsString()
+  description: string;
+
   @IsNumber()
   @IsOptional()
   kickDistance?: number;

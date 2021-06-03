@@ -4,6 +4,7 @@ exports[`given: missing data when: I initialize then: error matched snapshot 1`]
 
 exports[`given: missing nested data when: I initialize then: error matched snapshot 1`] = `
 [Error: PlayResultEvent: An instance of an object has failed the validation:
+ - property attributes.description has failed the following constraints: isString 
  - property attributes.elapsedTime has failed the following constraints: isNumber 
  - property attributes.isOutOfBounds has failed the following constraints: isBoolean 
 , nextSeed must be a number conforming to the specified constraints]
