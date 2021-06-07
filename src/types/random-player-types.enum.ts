@@ -11,4 +11,5 @@ export enum RandomPlayerTypes {
   LB = 'lb',
   CB = 'cb',
   S = 's',
+  N = 'n',
 }
