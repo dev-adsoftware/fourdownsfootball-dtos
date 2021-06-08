@@ -28,20 +28,20 @@ export class PlayerAttributes extends Dto {
 
   @IsNumber()
   @IsDivisibleBy(1)
-  @Min(48)
-  @Max(84)
+  @Min(0)
+  @Max(100)
   height: number;
 
   @IsNumber()
   @IsDivisibleBy(1)
-  @Min(100)
-  @Max(350)
+  @Min(0)
+  @Max(100)
   weight: number;
 
   @IsNumber()
   @IsDivisibleBy(1)
   @Min(1)
-  @Max(99)
+  @Max(100)
   jerseyNumber: number;
 
   @IsNumber()
