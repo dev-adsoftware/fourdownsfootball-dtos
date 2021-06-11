@@ -16,7 +16,9 @@ describe('given: missing nested data', () => {
   describe('when: I initialize', () => {
     it('then: error matched snapshot', async () => {
       try {
-        expect(new TeamRosterView().init({ players: [{}] })).not.toBeDefined();
+        expect(
+          new TeamRosterView().init({ players: [{}], depthChart: {} }),
+        ).not.toBeDefined();
       } catch (e) {
         expect(e).toMatchSnapshot();
       }

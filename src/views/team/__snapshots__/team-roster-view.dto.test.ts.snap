@@ -1,10 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`given: missing data when: I initialize then: error matched snapshot 1`] = `[Error: TeamRosterView: id must be a string, sequence must be a number string, players must be an array]`;
+exports[`given: missing data when: I initialize then: error matched snapshot 1`] = `[Error: TeamRosterView: id must be a string, sequence must be a number string, players must be an array, depthChart must be an object]`;
 
 exports[`given: missing nested data when: I initialize then: error matched snapshot 1`] = `
 [Error: TeamRosterView: id must be a string, sequence must be a number string, An instance of an object has failed the validation:
  - property players[0].id has failed the following constraints: isString 
  - property players[0].sequence has failed the following constraints: isNumberString 
+, An instance of an object has failed the validation:
+ - property depthChart.qb has failed the following constraints: isString 
+ - property depthChart.rb has failed the following constraints: isString 
+ - property depthChart.fb has failed the following constraints: isString 
+ - property depthChart.wr has failed the following constraints: isString 
+ - property depthChart.te has failed the following constraints: isString 
+ - property depthChart.lt has failed the following constraints: isString 
+ - property depthChart.lg has failed the following constraints: isString 
+ - property depthChart.c has failed the following constraints: isString 
+ - property depthChart.rg has failed the following constraints: isString 
+ - property depthChart.rt has failed the following constraints: isString 
+ - property depthChart.dt has failed the following constraints: isString 
+ - property depthChart.de has failed the following constraints: isString 
+ - property depthChart.ilb has failed the following constraints: isString 
+ - property depthChart.olb has failed the following constraints: isString 
+ - property depthChart.cb has failed the following constraints: isString 
+ - property depthChart.s has failed the following constraints: isString 
+ - property depthChart.k has failed the following constraints: isString 
+ - property depthChart.p has failed the following constraints: isString 
+ - property depthChart.kr has failed the following constraints: isString 
+ - property depthChart.pr has failed the following constraints: isString 
+ - property depthChart.ksp has failed the following constraints: isString 
+ - property depthChart.krsp has failed the following constraints: isString 
+ - property depthChart.prsp has failed the following constraints: isString 
+ - property depthChart.psp has failed the following constraints: isString 
 ]
 `;
