@@ -18,11 +18,11 @@ export class DepthChartAssignedEvent extends Event {
   fromPosition: string;
 
   @IsNumber()
-  fromRank: string;
+  fromRank: number;
 
   @IsString()
   toPosition: string;
 
   @IsNumber()
-  toRank: string;
+  toRank: number;
 }
