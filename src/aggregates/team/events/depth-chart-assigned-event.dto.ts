@@ -1,4 +1,7 @@
-import { IsNumber, IsString } from 'class-validator';
+import 'reflect-metadata';
+import { Type } from 'class-transformer';
+import { IsArray, IsString, ValidateNested } from 'class-validator';
+import { DepthChartAssignmentAttributes } from '../../../attributes/depth-chart-assignment.attributes.dto';
 import { Event } from '../../../event.dto';
 
 export class DepthChartAssignedEvent extends Event {
@@ -6,23 +9,13 @@ export class DepthChartAssignedEvent extends Event {
   source = 'engine';
 
   @IsString()
-  type = 'depth-chart.assigned';
+  type = 'player.assigned';
 
   @IsString()
   version = '1';
 
-  @IsString()
-  playerId: string;
-
-  @IsString()
-  fromPosition: string;
-
-  @IsNumber()
-  fromRank: number;
-
-  @IsString()
-  toPosition: string;
-
-  @IsNumber()
-  toRank: number;
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => DepthChartAssignmentAttributes)
+  assignments: DepthChartAssignmentAttributes[];
 }

@@ -1,3 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`given: missing data when: I initialize then: error matched snapshot 1`] = `[Error: DepthChartAssignedEvent: playerId must be a string, fromPosition must be a string, fromRank must be a number conforming to the specified constraints, toPosition must be a string, toRank must be a number conforming to the specified constraints]`;
+exports[`given: missing data when: I initialize then: error matched snapshot 1`] = `[Error: DepthChartAssignedEvent: assignments must be an array]`;
+
+exports[`given: missing nested data when: I initialize then: error matched snapshot 1`] = `
+[Error: DepthChartAssignedEvent: An instance of an object has failed the validation:
+ - property assignments[0].playerId has failed the following constraints: isString 
+ - property assignments[0].fromPosition has failed the following constraints: isString 
+ - property assignments[0].fromRank has failed the following constraints: isNumber 
+ - property assignments[0].toPosition has failed the following constraints: isString 
+ - property assignments[0].toRank has failed the following constraints: isNumber 
+]
+`;
