@@ -6,6 +6,7 @@ describe('given: team event factory', () => {
       expect(new TeamEventFactory().events).toMatchObject({
         'team.created': {},
         'player.assigned': {},
+        'depth-chart.assigned': {},
       });
     });
   });
