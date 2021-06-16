@@ -11,7 +11,7 @@ export class GameStateAttributes extends Dto {
   actorId: string;
 
   @IsString()
-  offense = 'none';
+  offenseId = 'none';
 
   @IsEnum(DirectionChoices)
   direction: DirectionChoices = DirectionChoices.South;

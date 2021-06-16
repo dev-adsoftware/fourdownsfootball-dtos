@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`given: missing player data when: I create initialize then: error matched snapshot 1`] = `"GameStateAttributes: state must be a valid enum value, actorId must be a string"`;
