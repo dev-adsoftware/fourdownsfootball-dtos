@@ -12,8 +12,8 @@ export class ActorChangedEvent extends Event {
   version = '1';
 
   @IsString()
-  oldActor: string;
+  oldActorId: string;
 
   @IsString()
-  newActor: string;
+  newActorId: string;
 }

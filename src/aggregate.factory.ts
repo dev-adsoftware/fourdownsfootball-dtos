@@ -1,12 +1,11 @@
-import {
-  PlayerEventFactory,
-  TeamEventFactory,
-  FormationEventFactory,
-  GameEventFactory,
-} from './aggregates';
-
 import { Aggregate, Event } from '.';
 import { EventFactory } from './event.factory';
+import { PlayerEventFactory } from './aggregates/player';
+import { TeamEventFactory } from './aggregates/team';
+import { FormationEventFactory } from './aggregates/formation';
+import { GameEventFactory } from './aggregates/game';
+import { OwnerEventFactory } from './aggregates/owner';
+/* autogen replace: import */
 
 export class AggregateFactory {
   public eventFactories: { [key: string]: EventFactory };
@@ -17,7 +16,8 @@ export class AggregateFactory {
       formation: new FormationEventFactory(),
       team: new TeamEventFactory(),
       player: new PlayerEventFactory(),
-      /* toolkit autogen: do not remove */
+      owner: new OwnerEventFactory(),
+      /* autogen replace: constructor */
     };
   }
 

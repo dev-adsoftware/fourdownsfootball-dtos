@@ -3,7 +3,7 @@ import { Dto } from '../dto';
 
 export class DepthChartAssignmentAttributes extends Dto {
   @IsString()
-  playerId: string;
+  id: string;
 
   @IsString()
   fromPosition: string;

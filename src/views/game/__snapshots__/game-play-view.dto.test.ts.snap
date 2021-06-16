@@ -4,13 +4,15 @@ exports[`given: missing data when: I initialize then: error matched snapshot 1`]
 
 exports[`given: missing nested data when: I initialize then: error matched snapshot 1`] = `
 [Error: GamePlayView: id must be a string, offenseSequence must be a number string, offensePlay must be a string, An instance of an object has failed the validation:
- - property offenseFormation.name has failed the following constraints: isString 
+ - property offenseFormation.id has failed the following constraints: isString 
  - property offenseFormation.sequence has failed the following constraints: isNumberString 
+ - property offenseFormation.name has failed the following constraints: isString 
  - property offenseFormation.formationType has failed the following constraints: isEnum 
  - property offenseFormation.positionMap has failed the following constraints: isString, arrayMaxSize, arrayMinSize 
 , each value in offensePlayers must be a string, offensePlayers must contain at least 11 elements, offensePlayers must contain not more than 11 elements, An instance of an object has failed the validation:
- - property defenseFormation.name has failed the following constraints: isString 
+ - property defenseFormation.id has failed the following constraints: isString 
  - property defenseFormation.sequence has failed the following constraints: isNumberString 
+ - property defenseFormation.name has failed the following constraints: isString 
  - property defenseFormation.formationType has failed the following constraints: isEnum 
  - property defenseFormation.positionMap has failed the following constraints: isString, arrayMaxSize, arrayMinSize 
 ]

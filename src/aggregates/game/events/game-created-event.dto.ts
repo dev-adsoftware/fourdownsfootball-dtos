@@ -15,16 +15,10 @@ export class GameCreatedEvent extends Event {
   currentSeed: number;
 
   @IsString()
-  homeUsername: string;
-
-  @IsString()
   homeTeamId: string;
 
   @IsString()
   homeTeamSequence: string;
-
-  @IsString()
-  awayUsername: string;
 
   @IsString()
   awayTeamId: string;

@@ -1,26 +1,23 @@
 import 'reflect-metadata';
-import { Type } from 'class-transformer';
 import {
   IsNumberString,
   IsObject,
   IsString,
   ValidateNested,
 } from 'class-validator';
-import { TeamAttributes } from '../../attributes/team.attributes.dto';
+import { Type } from 'class-transformer';
 import { Dto } from '../../dto';
+import { OwnerAttributes } from '../../attributes/owner.attributes.dto';
 
-export class TeamSummaryView extends Dto {
+export class OwnerSummaryView extends Dto {
   @IsString()
   id: string;
 
   @IsNumberString()
   sequence: string;
 
-  @IsString()
-  ownerId: string;
-
   @IsObject()
   @ValidateNested()
-  @Type(() => TeamAttributes)
-  attributes: TeamAttributes;
+  @Type(() => OwnerAttributes)
+  attributes: OwnerAttributes;
 }

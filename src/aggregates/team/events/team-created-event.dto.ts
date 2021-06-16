@@ -15,7 +15,7 @@ export class TeamCreatedEvent extends Event {
   version = '1';
 
   @IsString()
-  ownerUsername: string;
+  ownerId: string;
 
   @IsObject()
   @ValidateNested()

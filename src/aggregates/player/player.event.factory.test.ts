@@ -6,7 +6,7 @@ describe('given: player event factory', () => {
       expect(new PlayerEventFactory().events).toMatchObject({
         'player.created': {},
         'player.randomized': {},
-      /* autogen replace: constructor */
+        /* autogen replace: constructor */
       });
     });
   });

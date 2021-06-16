@@ -4,7 +4,7 @@ exports[`given: missing data when: I initialize then: error matched snapshot 1`]
 
 exports[`given: missing nested data when: I initialize then: error matched snapshot 1`] = `
 [Error: DepthChartAssignedEvent: An instance of an object has failed the validation:
- - property assignments[0].playerId has failed the following constraints: isString 
+ - property assignments[0].id has failed the following constraints: isString 
  - property assignments[0].fromPosition has failed the following constraints: isString 
  - property assignments[0].fromRank has failed the following constraints: isNumber 
  - property assignments[0].toPosition has failed the following constraints: isString 

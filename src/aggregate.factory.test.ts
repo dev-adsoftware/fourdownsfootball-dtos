@@ -9,6 +9,8 @@ describe('given: aggregate factory', () => {
         game: {},
         player: {},
         team: {},
+        owner: {},
+        /* autogen replace: mock factory */
       });
     });
   });

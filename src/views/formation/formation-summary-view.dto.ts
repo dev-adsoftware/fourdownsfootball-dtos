@@ -10,10 +10,13 @@ import { FormationTypes } from '../../types';
 
 export class FormationSummaryView extends Dto {
   @IsString()
-  name: string;
+  id: string;
 
   @IsNumberString()
   sequence: string;
+
+  @IsString()
+  name: string;
 
   @IsEnum(FormationTypes)
   formationType: FormationTypes;

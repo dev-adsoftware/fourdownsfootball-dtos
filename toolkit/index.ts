@@ -1,132 +1,95 @@
 import { Command } from 'commander';
-import { realpathSync, writeFileSync, readFileSync } from 'fs-extra';
-import * as path from 'path';
-
-const firstUpper = (name: string) =>
-  `${name[0].toUpperCase()}${(name as string).slice(1)}`;
+import { DeleteAggregateAction } from './aggregate-delete.cmd';
+import { CreateAggregateAction } from './aggregate-create.cmd';
+import { CreateEventAction } from './event-create.cmd';
+import { DeleteEventAction } from './event-delete.cmd';
+import { DeleteViewAction } from './view-delete.cmd';
+import { CreateViewAction } from './view-create.cmd';
+import { DeleteAttributesAction } from './attributes-delete.cmd';
+import { CreateAttributesAction } from './attributes-create.cmd';
 
 const program = new Command();
 program.name('4d-dto-toolkit');
 
-program
-  .command('event')
-  .description('create a new event')
-  .requiredOption('-n, --name <name>', 'event name')
+const aggregateCommand = program.command('aggregate');
+aggregateCommand
+  .command('create')
+  .description('create a new aggregate')
   .requiredOption('-a, --aggregate <aggregate>', 'aggregate')
   .action(async (options) => {
-    const { name, aggregate } = options;
-    const lowerName = name.toLowerCase();
-    const lowerAggregate = aggregate.toLowerCase();
-    const noHyphenNameParts = name.toLowerCase().split('-');
-    const formalName = noHyphenNameParts
-      .map((part: string) => firstUpper(part))
-      .join('');
-    const dotName = name.toLowerCase().replace(/-/g, '.');
+    new DeleteAggregateAction().process(options);
+    new CreateAggregateAction().process(options);
+    new CreateViewAction().process({
+      viewName: `${options.aggregate}-summary`,
+      aggregate: options.aggregate,
+    });
+  });
 
-    const templatesPath = `${path.dirname(realpathSync(__filename))}/templates`;
-    const srcAggregatePath = `${path.dirname(
-      realpathSync(__filename),
-    )}/../src/aggregates/${lowerAggregate}`;
+aggregateCommand
+  .command('delete')
+  .description('delete an aggregate')
+  .requiredOption('-a, --aggregate <aggregate>', 'aggregate')
+  .action(async (options) => {
+    new DeleteAggregateAction().process(options);
+  });
 
-    let eventDtoTs = readFileSync(
-      `${templatesPath}/events/event.dto.ts`,
-    ).toString('utf8');
-    eventDtoTs = eventDtoTs
-      .replace(/FormalName/g, formalName)
-      .replace(/DotName/g, dotName)
-      .replace(/\.\.\/\.\.\/\.\.\/src\/event\.dto/g, '../../../event.dto');
-    writeFileSync(
-      `${srcAggregatePath}/events/${lowerName}-event.dto.ts`,
-      eventDtoTs,
-    );
+const eventCommand = program.command('event');
 
-    let eventDtoTestTs = readFileSync(
-      `${templatesPath}/events/event.dto.test.ts`,
-    ).toString('utf8');
-    eventDtoTestTs = eventDtoTestTs
-      .replace(/FormalName/g, formalName)
-      .replace(/\.\/event\.dto/g, `./${lowerName}-event.dto`);
-    writeFileSync(
-      `${srcAggregatePath}/events/${lowerName}-event.dto.test.ts`,
-      eventDtoTestTs,
-    );
+eventCommand
+  .command('create')
+  .description('create a new event')
+  .requiredOption('-n, --eventName <eventName>', 'event name')
+  .requiredOption('-a, --aggregate <aggregate>', 'aggregate')
+  .action(async (options) => {
+    new DeleteEventAction().process(options);
+    new CreateEventAction().process(options);
+  });
 
-    let indexTs = readFileSync(`${srcAggregatePath}/index.ts`).toString('utf8');
-    indexTs = indexTs
-      .replace(
-        new RegExp(
-          `export \\* from '\\.\\/events\\/${lowerName}-event\\.dto';\n`,
-          'g',
-        ),
-        '',
-      )
-      .replace(
-        /\/\* autogen replace: export \*\//,
-        `
-export * from './events/${lowerName}-event.dto';
-/* autogen replace: export */
-`
-          .trimLeft()
-          .trimRight(),
-      );
-    writeFileSync(`${srcAggregatePath}/index.ts`, indexTs);
+eventCommand
+  .command('delete')
+  .description('delete an event')
+  .requiredOption('-n, --eventName <eventName>', 'event name')
+  .requiredOption('-a, --aggregate <aggregate>', 'aggregate')
+  .action(async (options) => {
+    new DeleteEventAction().process(options);
+  });
 
-    let eventFactoryTs = readFileSync(
-      `${srcAggregatePath}/${lowerAggregate}.event.factory.ts`,
-    ).toString('utf8');
-    eventFactoryTs = eventFactoryTs
-      .replace(
-        new RegExp(
-          `import { ${formalName}Event } from '\\.\\/events\\/${lowerName}-event\\.dto';\n`,
-          'g',
-        ),
-        '',
-      )
-      .replace(
-        new RegExp(`\\s*'${dotName}': new ${formalName}Event\\(\\)\\,\\n`, 'g'),
-        '\n',
-      )
-      .replace(
-        /\/\* autogen replace: import \*\//,
-        `
-import { ${formalName}Event } from './events/${lowerName}-event.dto';
-/* autogen replace: import */
-`
-          .trimLeft()
-          .trimRight(),
-      )
-      .replace(
-        /\/\* autogen replace: constructor \*\//,
-        `
-'${dotName}': new ${formalName}Event(),
-      /* autogen replace: constructor */
-`
-          .trimLeft()
-          .trimRight(),
-      );
-    writeFileSync(
-      `${srcAggregatePath}/${lowerAggregate}.event.factory.ts`,
-      eventFactoryTs,
-    );
+const viewCommand = program.command('view');
+viewCommand
+  .command('create')
+  .description('create a new view')
+  .requiredOption('-n, --viewName <viewName>', 'view name')
+  .requiredOption('-a, --aggregate <aggregate>', 'aggregate')
+  .action(async (options) => {
+    new DeleteViewAction().process(options);
+    new CreateViewAction().process(options);
+  });
 
-    let eventFactoryTestTs = readFileSync(
-      `${srcAggregatePath}/${lowerAggregate}.event.factory.test.ts`,
-    ).toString('utf8');
-    eventFactoryTestTs = eventFactoryTestTs
-      .replace(new RegExp(`\\s*'${dotName}': \\{\\}\\,\\n`, 'g'), '\n')
-      .replace(
-        /\/\* autogen replace: constructor \*\//,
-        `
-'${dotName}': {},
-      /* autogen replace: constructor */
-`
-          .trimLeft()
-          .trimRight(),
-      );
-    writeFileSync(
-      `${srcAggregatePath}/${lowerAggregate}.event.factory.test.ts`,
-      eventFactoryTestTs,
-    );
+viewCommand
+  .command('delete')
+  .description('delete a view')
+  .requiredOption('-n, --viewName <viewName>', 'view name')
+  .requiredOption('-a, --aggregate <aggregate>', 'aggregate')
+  .action(async (options) => {
+    new DeleteViewAction().process(options);
+  });
+
+const attributesCommand = program.command('attributes');
+attributesCommand
+  .command('create')
+  .description('create a new attributes dto')
+  .requiredOption('-n, --attributesName <attributesName>', 'attributes name')
+  .action(async (options) => {
+    new DeleteAttributesAction().process(options);
+    new CreateAttributesAction().process(options);
+  });
+
+attributesCommand
+  .command('delete')
+  .description('delete an attributes collection')
+  .requiredOption('-n, --attributesName <attributesName>', 'attributes name')
+  .action(async (options) => {
+    new DeleteAttributesAction().process(options);
   });
 
 const main = async () => {

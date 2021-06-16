@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`given: missing data when: I initialize then: error matched snapshot 1`] = `[Error: ActorChangedEvent: oldActor must be a string, newActor must be a string]`;
+exports[`given: missing data when: I initialize then: error matched snapshot 1`] = `[Error: ActorChangedEvent: oldActorId must be a string, newActorId must be a string]`;
