@@ -1,6 +1,5 @@
-import { ArrayMaxSize, ArrayMinSize, IsEnum, IsString } from 'class-validator';
+import { ArrayMaxSize, ArrayMinSize, IsString } from 'class-validator';
 import { Event } from '../../../event.dto';
-import { DefenseFormations } from '../../../types/defense-formations.enum';
 
 export class DefensePlayCalledEvent extends Event {
   @IsString()
@@ -15,8 +14,8 @@ export class DefensePlayCalledEvent extends Event {
   @IsString()
   play: string;
 
-  @IsEnum(DefenseFormations)
-  formation: DefenseFormations;
+  @IsString()
+  formationId: string;
 
   @ArrayMinSize(11)
   @ArrayMaxSize(11)
