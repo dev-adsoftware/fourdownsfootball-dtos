@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`given: missing data when: I initialize then: error matched snapshot 1`] = `[Error: OwnerCreatedEvent: attributes must be an object]`;
+
+exports[`given: missing nested data when: I initialize then: error matched snapshot 1`] = `
+[Error: OwnerCreatedEvent: An instance of an object has failed the validation:
+ - property attributes.username has failed the following constraints: isString 
+]
+`;
