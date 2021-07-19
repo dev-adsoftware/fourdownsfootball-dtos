@@ -12,9 +12,9 @@ describe('given: a class that extends dto', () => {
       }
       const list = new DtoList();
       list.items = [new ExtendedDto().init({ required: 'yep' })];
-      list.lastKey = { ...list.items[0] };
+      list.lastKey = JSON.stringify({ ...list.items[0] });
       expect(list.serialize()).toEqual(
-        '{"items":[{"required":"yep"}],"lastKey":{"required":"yep"}}',
+        '{"items":[{"required":"yep"}],"lastKey":"{\\"required\\":\\"yep\\"}"}',
       );
     });
   });
